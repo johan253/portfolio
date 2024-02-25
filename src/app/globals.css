@@ -25,9 +25,13 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@font-face {
+  font-family: "burtons";
+  src: url("../../public/Burtons.otf");
 }
+
+/*@layer utilities {*/
+/*  .text-balance {*/
+/*    text-wrap: balance;*/
+/*  }*/
+/*}*/
