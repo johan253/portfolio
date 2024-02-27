@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main className={darkMode ? "dark" : ""}>
       <section className="bg-neutral-200 dark:bg-slate-800">
-          <nav className="mb-10 flex justify-between p-5 w-screen">
+          <nav className="mb-10 flex justify-between p-5 w-full">
               <div className={"bg-neutral-50 shadow-md shadow-neutral-300 p-3 text-white rounded-md dark:bg-slate-700 dark:shadow-slate-950"}>
                   <h1 className={"bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent font-bold"}>
                       J H
