@@ -69,8 +69,8 @@ export default function Home() {
             <Image className={"scale-75"} src={johan} alt={"Animated Image of Johan"} layout={"fill"} objectFit={"cover"} />
           </div>
       </section>
-        <section className={" p-5 bg-neutral-200 dark:bg-slate-800"}>
-            <h1 className={"text-3xl text-center text-black dark:text-white"}>
+        <section className={"p-5 bg-neutral-200 dark:bg-slate-800"}>
+            <h1 className={"text-3xl text-center text-black dark:text-white font-bold"}>
                 Projects
             </h1>
             <Project img={projection} title={"PROJECTion"} url={"https://github.com/johan253/projection"}
