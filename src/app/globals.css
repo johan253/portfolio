@@ -29,6 +29,11 @@ body {
   font-family: "burtons";
   src: url("../../public/Burtons.otf");
 }
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+}
 
 /*@layer utilities {*/
 /*  .text-balance {*/
