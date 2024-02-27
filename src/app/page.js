@@ -47,7 +47,7 @@ export default function Home() {
           </nav>
           <div className="text-center">
               <p className="font-mono text-black dark:text-white">Hi, my name is</p>
-              <h2 className="text-5xl text-blue-800 p-2">Johan Hernandez</h2>
+              <h2 className="text-5xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent p-2">Johan Hernandez</h2>
               <h3 className="text-2xl p-2 text-black dark:text-white">Aspiring Software Engineer</h3>
               <p className="text-md p-5 leading-8 text-gray-600 dark:text-gray-400">
                   Computer Science Student at UWT. Passionate about programming and solving problems.
@@ -75,7 +75,7 @@ export default function Home() {
             </h1>
             <Project img={projection} title={"PROJECTion"} url={"https://github.com/johan253/projection"}
                      desc={"Desktop application that allows users to manage projects and track tasks associated with all your projects. " +
-                         "Local SQLite database and simple GUI allows users to easily organize and track completion" +
+                         "Local SQLite database and simple GUI allows users to easily organize and track completion " +
                          "towards projects."}
                      tags={projectionTags}/>
             <Project img={tetris} title={"Tetris Clone"} url={"https://github.com/johan253/tetris-clone"}
