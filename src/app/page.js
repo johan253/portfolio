@@ -65,8 +65,8 @@ export default function Home() {
                   <AiFillMail/>
               </a>
           </div>
-          <div className={"relative mx-auto bg-gradient-to-b from-blue-900 rounded-full w-80 h-80 mt-20"}>
-            <Image className={"scale-75"} src={johan} alt={"Animated Image of Johan"} layout={"fill"} objectFit={"cover"} />
+          <div className={"relative mx-auto bg-gradient-to-b from-blue-900 rounded-full w-80 h-80 mt-14"}>
+            <Image className={"scale-75 -translate-y-10 -translate-x-1.5"} src={johan} alt={"Animated Image of Johan"}/>
           </div>
       </section>
         <section className={"p-5 bg-neutral-200 dark:bg-slate-800"}>
