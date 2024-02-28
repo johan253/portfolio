@@ -4,8 +4,8 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "predeploy" : "npm run build",
-    "deploy": "gh-pages -d build",
+    "build-static": "next build && npm run build-static-repair-index",
+    "build-static-repair-index": "replace-in-files --string \"/_next/static\" --replacement \"./_next/static\" out/index.html",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
