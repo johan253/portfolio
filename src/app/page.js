@@ -40,11 +40,12 @@ export default function Home() {
                   </h1>
                 </div>
               <ul className="flex items-center">
-                  <li className={"transition ease-in-out hover:rotate-12 "}>
-                      <BsFillMoonStarsFill className="fill-black dark:fill-white cursor-pointer" onClick={()=>toggleDarkMode()}/>
+                  <li className={"bg-neutral-200 dark:bg-slate-800 w-10 p-1 rounded-3xl shadow-inner shadow-gray-600 dark:shadow-black cursor-pointer"}
+                      onClick={()=>toggleDarkMode()}>
+                      <BsFillMoonStarsFill className="transition fill-black dark:fill-white dark:translate-x-4"/>
                   </li>
                   <li className={"transition ease-in-out hover:scale-95"}>
-                      <a href="#" className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-8">
+                      <a href="#" className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6">
                           Resume
                       </a>
                   </li>
@@ -94,6 +95,7 @@ export default function Home() {
                          "your attention and introduce myself effectively."}
                      tags={portfolioTags}/>
         </section>
+
     </main>
   );
 }
