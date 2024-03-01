@@ -5,12 +5,24 @@ import {AiFillGithub, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import Image from "next/image";
 import johan from "../assets/johan.png";
 import Project from "@/app/Project";
+import rateMyCoursesPreview from "../assets/rate-my-courses-dev.png"
 import projection from "../assets/projection.png";
 import tetris from "../assets/tetris.png";
 import portfolio from "../assets/portfolio.png";
 import {useState} from "react";
 
 export default function Home() {
+    const ratemycoursesTags = [
+        {name: "React"},
+        {name: "Next.js"},
+        {name: "TailwindCSS"},
+        {name: "Firebase"},
+    ]
+    const portfolioTags = [
+        {name: "React"},
+        {name: "TailwindCSS"},
+        {name: "Next.js"},
+    ]
     const projectionTags = [
         {name: "JavaFX"},
         {name: "SQLite"},
@@ -21,11 +33,7 @@ export default function Home() {
         {name: "MVC"},
         {name: "Observer Design Pattern"}
     ]
-    const portfolioTags = [
-        {name: "React"},
-        {name: "TailwindCSS"},
-        {name: "Next.js"},
-    ]
+
     const [darkMode, setDarkMode] = useState(true);
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
@@ -79,6 +87,17 @@ export default function Home() {
             <h1 className={"text-3xl text-left text-black dark:text-white font-bold"}>
                 Projects
             </h1>
+            <Project img={rateMyCoursesPreview} title={"Rate My Courses (coming soon)"} url={"https://github.com/johan253/rate-my-courses"}
+                     desc={"Currently under development, this website will allow students to rate their courses and write reviews" +
+                         "similarly to Rate My Professor, but for courses! This will assist students in picking out the best core classes, " +
+                         "required electives, or classes just for fun! Data is stored in a Firestore Database using the Firebase SDK to " +
+                         "save reviews and display them for users."}
+                     tags={ratemycoursesTags}/>
+            <Project img={portfolio} title={"Portfolio"} url={"https://github.com/johan253/portfolio"}
+                     desc={"The website that you are currently on was built using Next.js and React, with " +
+                         "TailwindCSS for styling. Simple yet beautiful and responsive UI to fully capture " +
+                         "your attention and introduce myself effectively."}
+                     tags={portfolioTags}/>
             <Project img={projection} title={"PROJECTion"} url={"https://github.com/johan253/projection"}
                      desc={"Desktop application that allows users to manage projects and track tasks associated with all your projects. " +
                          "Local SQLite database and simple GUI allows users to easily organize and track completion " +
@@ -89,13 +108,18 @@ export default function Home() {
                          "Collaborated with class to meet deadlines and create a MVC structure to allow communication with " +
                          "front end and back end."}
                      tags={tetrisTags}/>
-            <Project img={portfolio} title={"Portfolio"} url={"https://github.com/johan253/portfolio"}
-                     desc={"The website that you are currently on was built using Next.js and React, with " +
-                         "TailwindCSS for styling. Simple yet beautiful and responsive UI to fully capture " +
-                         "your attention and introduce myself effectively."}
-                     tags={portfolioTags}/>
         </section>
-
+        <footer className={"p-5 pt-12 bg-gradient-to-b from-slate-800 via-black to-black"}>
+            <div className={"text-xs text-center"}>
+                This website was made and is maintained by Johan Hernandez.
+                <br/>
+                For any questions, comments, or concerns, please email me at:
+                <br/>
+                <a href={"mailto:johannjo2000@gmail.com"} className={"text-gray-400"}>
+                    johannjo2000@gmail.com
+                </a>
+            </div>
+        </footer>
     </main>
   );
 }
