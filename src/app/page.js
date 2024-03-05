@@ -64,7 +64,8 @@ export default function Home() {
               <h2 className="text-5xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent p-2 font-bold">Johan Hernandez</h2>
               <h3 className="text-2xl p-2 text-black dark:text-white">Aspiring Software Engineer</h3>
               <p className="text-md p-5 leading-8 text-gray-600 dark:text-gray-400 ">
-                  Computer Science student at the University of Washington. Passionate about programming and solving problems.
+                  I am a Computer Science student at the University of Washington and Passionate about programming and solving problems
+                  alongside others. I love to learn new things every day and facing different kinds of challenges along the way.
                   Connect with me and get to know me better!
               </p>
           </div>
@@ -88,7 +89,7 @@ export default function Home() {
                 Projects
             </h1>
             <Project img={rateMyCoursesPreview} title={"Rate My Courses (coming soon)"} url={"https://github.com/johan253/rate-my-courses"}
-                     desc={"Currently under development, this website will allow students to rate their courses and write reviews" +
+                     desc={"Currently under development, this website will allow students to rate their courses and write reviews " +
                          "similarly to Rate My Professor, but for courses! This will assist students in picking out the best core classes, " +
                          "required electives, or classes just for fun! Data is stored in a Firestore Database using the Firebase SDK to " +
                          "save reviews and display them for users."}
@@ -109,7 +110,7 @@ export default function Home() {
                          "front end and back end."}
                      tags={tetrisTags}/>
         </section>
-        <footer className={"p-5 pt-12 bg-gradient-to-b from-slate-800 via-black to-black"}>
+        <footer className={"p-5 pt-12 bg-gradient-to-b dark:from-slate-800 from from-neutral-200 via-black to-black"}>
             <div className={"text-xs text-center"}>
                 This website was made and is maintained by Johan Hernandez.
                 <br/>
