@@ -4,40 +4,43 @@ import {BsFillMoonStarsFill} from 'react-icons/bs';
 import {AiFillGithub, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import Image from "next/image";
 import johan from "../assets/johan.png";
-import Project from "@/app/Project";
+import Project from "@/components/Project";
 import rateMyCoursesPreview from "../assets/rate-my-courses-dev.png"
 import projection from "../assets/projection.png";
 import tetris from "../assets/tetris.png";
 import portfolio from "../assets/portfolio.png";
-import {useState} from "react";
+import error from "../assets/error.png"
+import {useEffect, useState} from "react";
+import {db} from "@/firebaseConfig";
+import { getDocs, collection } from "firebase/firestore"
 
 export default function Home() {
-    const ratemycoursesTags = [
-        {name: "React"},
-        {name: "Next.js"},
-        {name: "TailwindCSS"},
-        {name: "Firebase"},
-    ]
-    const portfolioTags = [
-        {name: "React"},
-        {name: "TailwindCSS"},
-        {name: "Next.js"},
-    ]
-    const projectionTags = [
-        {name: "JavaFX"},
-        {name: "SQLite"},
-        {name: "CSS"}
-    ]
-    const tetrisTags = [
-        {name: "Java"},
-        {name: "MVC"},
-        {name: "Observer Design Pattern"}
-    ]
 
     const [darkMode, setDarkMode] = useState(true);
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     }
+    const [projects, setProjects] = useState([])
+    const getProjects = async () => {
+        let data = []
+        await getDocs(collection(db, "projects")).then((qs) => {
+            data = qs.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+            setProjects(data)
+        })
+    }
+    useEffect(() => {
+        getProjects();
+    }, [])
+    const images = {
+        "Rate My Courses": rateMyCoursesPreview,
+        "Portfolio": portfolio,
+        "PROJECTion": projection,
+        "Tetris": tetris
+    }
+    const cards = projects.sort((p1, p2) => p2.order - p1.order).map(p =>
+        <Project key={p.id} title={p.name} desc={p.description} url={p.url}
+                 tags={p.tags} img={images[p.name] ? images[p.name] : error}/>
+    )
   return (
     <main className={darkMode ? "dark" : ""}>
       <section className="transition bg-neutral-200 dark:bg-slate-800">
@@ -53,7 +56,8 @@ export default function Home() {
                       <BsFillMoonStarsFill className="transition fill-black dark:fill-white dark:translate-x-4"/>
                   </li>
                   <li className={"transition ease-in-out hover:scale-95"}>
-                      <a href="#" className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6">
+                      <a href={"#"} className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6"
+                         download={"Resume"} target={"_blank"}>
                           Resume
                       </a>
                   </li>
@@ -88,27 +92,9 @@ export default function Home() {
             <h1 className={"text-3xl text-left text-black dark:text-white font-bold"}>
                 Projects
             </h1>
-            <Project img={rateMyCoursesPreview} title={"Rate My Courses (coming soon)"} url={"https://github.com/johan253/rate-my-courses"}
-                     desc={"Currently under development, this website will allow students to rate their courses and write reviews " +
-                         "similarly to Rate My Professor, but for courses! This will assist students in picking out the best core classes, " +
-                         "required electives, or classes just for fun! Data is stored in a Firestore Database using the Firebase SDK to " +
-                         "save reviews and display them for users."}
-                     tags={ratemycoursesTags}/>
-            <Project img={portfolio} title={"Portfolio"} url={"https://github.com/johan253/portfolio"}
-                     desc={"The website that you are currently on was built using Next.js and React, with " +
-                         "TailwindCSS for styling. Simple yet beautiful and responsive UI to fully capture " +
-                         "your attention and introduce myself effectively."}
-                     tags={portfolioTags}/>
-            <Project img={projection} title={"PROJECTion"} url={"https://github.com/johan253/projection"}
-                     desc={"Desktop application that allows users to manage projects and track tasks associated with all your projects. " +
-                         "Local SQLite database and simple GUI allows users to easily organize and track completion " +
-                         "towards projects."}
-                     tags={projectionTags}/>
-            <Project img={tetris} title={"Tetris Clone"} url={"https://github.com/johan253/tetris-clone"}
-                     desc={"Fully functioning Tetris clone featuring responsive gameplay and various customizable GUI elements. " +
-                         "Collaborated with class to meet deadlines and create a MVC structure to allow communication with " +
-                         "front end and back end."}
-                     tags={tetrisTags}/>
+            {
+                cards ? cards : "Projects failed to load... :("
+            }
         </section>
         <footer className={"p-5 pt-12 bg-gradient-to-b dark:from-slate-800 from from-neutral-200 via-black to-black"}>
             <div className={"text-xs text-center"}>
