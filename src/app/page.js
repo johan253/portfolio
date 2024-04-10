@@ -56,8 +56,7 @@ export default function Home() {
                       <BsFillMoonStarsFill className="transition fill-black dark:fill-white dark:translate-x-4"/>
                   </li>
                   <li className={"transition ease-in-out hover:scale-95"}>
-                      <a href={"#"} className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6"
-                         download={"Resume"} target={"_blank"}>
+                      <a href={"#"} className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6">
                           Resume
                       </a>
                   </li>
