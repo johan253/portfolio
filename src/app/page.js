@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import {AiFillGithub, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import Image from "next/image";
 import error from "../assets/error.png"
@@ -47,7 +48,7 @@ export default function Home() {
     return (
     <main className={darkMode ? "dark" : ""}>
         <section className="transition bg-neutral-200 dark:bg-slate-800">
-            <Navbar/>
+            <Navbar toggleDark={toggleDarkMode}/>
             <div className="text-center">
                 <p className="font-mono text-black dark:text-white">Hi, my name is</p>
                 <h2 className="text-5xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent p-2 font-bold">Johan Hernandez</h2>
@@ -81,17 +82,7 @@ export default function Home() {
                 cards ? cards : "Projects failed to load... :("
             }
         </section>
-        <footer className={"p-5 pt-12 bg-gradient-to-b dark:from-slate-800 from from-neutral-200 via-black to-black"}>
-            <div className={"text-xs text-center"}>
-                This website was made and is maintained by Johan Hernandez.
-                <br/>
-                For any questions, comments, or concerns, please email me at:
-                <br/>
-                <a href={"mailto:johannjo2000@gmail.com"} className={"text-gray-400"}>
-                    johannjo2000@gmail.com
-                </a>
-            </div>
-        </footer>
+        <Footer/>
     </main>
 );
 }

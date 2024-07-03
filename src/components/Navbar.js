@@ -1,6 +1,6 @@
 import {BsFillMoonStarsFill} from 'react-icons/bs';
 
-const Navbar = () => {
+const Navbar = ({ toggleDark }) => {
   return (
     <nav className="mb-10 flex justify-between p-5 w-full">
       <div className={"bg-neutral-50 shadow-md shadow-neutral-300 p-3 text-white rounded-md dark:bg-slate-700 dark:shadow-slate-950"}>
@@ -10,7 +10,7 @@ const Navbar = () => {
       </div>
       <ul className="flex items-center">
         <li className={"bg-neutral-200 dark:bg-slate-800 w-10 p-1 rounded-3xl shadow-inner shadow-gray-600 dark:shadow-black cursor-pointer"}
-            onClick={()=>toggleDarkMode()}>
+            onClick={()=>toggleDark()}>
             <BsFillMoonStarsFill className="transition fill-black dark:fill-white dark:translate-x-4"/>
         </li>
         <li className={"transition ease-in-out hover:scale-95"}>
