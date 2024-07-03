@@ -9,7 +9,9 @@ return (
         <div className={"md:flex group"}>
             <div className={"md:shrink-0 p-2"}>
                 <Image src={props.img} alt={props.title}
-                className={"rounded-2xl h-48 w-full object-cover md:h-full md:w-56"}/>
+                className={"rounded-2xl h-48 w-full object-cover md:h-full md:w-56"}
+                width={1}
+                height={1}/>
             </div>
             <div className={"flex-wrap p-4 md:inline-block text-black dark:text-white"}>
                 <h1 className={"flex text-2xl font-mono justify-between transition ease-in group-hover:text-sky-500 font-bold"}>
