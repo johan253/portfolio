@@ -1,6 +1,6 @@
 import {BsFillMoonStarsFill} from 'react-icons/bs';
 
-const Navbar = ({ toggleDark }) => {
+const Navbar = ({ toggleDark, resumeLink }) => {
   return (
     <nav className="mb-10 flex justify-between p-5 w-full">
       <div className={"bg-neutral-50 shadow-md shadow-neutral-300 p-3 text-white rounded-md dark:bg-slate-700 dark:shadow-slate-950"}>
@@ -14,7 +14,7 @@ const Navbar = ({ toggleDark }) => {
             <BsFillMoonStarsFill className="transition fill-black dark:fill-white dark:translate-x-4"/>
         </li>
         <li className={"transition ease-in-out hover:scale-95"}>
-          <a href={"#"} className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6">
+          <a href={resumeLink || "#"} className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6">
               Resume
           </a>
         </li>

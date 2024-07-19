@@ -48,7 +48,7 @@ export default function Home() {
     return (
     <main className={darkMode ? "dark" : ""}>
         <section className="transition bg-neutral-200 dark:bg-slate-800">
-            <Navbar toggleDark={toggleDarkMode}/>
+            <Navbar toggleDark={toggleDarkMode} resumeLink={resume}/>
             <div className="text-center">
                 <p className="font-mono text-black dark:text-white">Hi, my name is</p>
                 <h2 className="text-5xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent p-2 font-bold">Johan Hernandez</h2>
