@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 </div>
                 <div className="flex flex-col justify-between p-6">
                     <div>
-                        <h1 className="text-3xl font-sans font-bold transition-colors duration-200 group-hover:text-sky-500 flex items-center justify-between">
+                        <h1 className="text-3xl text-black dark:text-white font-sans font-bold transition-colors duration-200 group-hover:text-sky-500 flex items-center justify-between">
                             {project.name}
                             <a href={project.url} target="_blank" rel="noopener noreferrer">
                                 <AiFillGithub className="scale-150 transition-transform transform hover:scale-175" />
