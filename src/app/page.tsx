@@ -1,13 +1,13 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import {AiFillGithub, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import Image from "next/image";
 import error from "../assets/error.png"
-import Project from "@/components/Project";
+import Project from "../components/Project";
 import {useEffect, useState} from "react";
-import {db} from "@/firebaseConfig";
+import {db} from "../firebaseConfig";
 import { getDocs, collection, getDoc, doc } from "firebase/firestore"
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
     }
     // Fetches the important images from the database
     const fetchImportantImages = async () => {
-        let data = {};
+        let data = [];
         await getDocs(collection(db, "images")).then((qs) => {
             data = qs.docs.map((doc) => ({id: doc.id, ...doc.data()}))
             setImportantImages(data);
