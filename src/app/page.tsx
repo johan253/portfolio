@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {AiFillGithub, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import Image from "next/image";
-import error from "../assets/error.png"
 import ProjectCard from "../components/Project";
 import type {Project} from "../components/Project";
 import { useState, useEffect } from "react";
@@ -58,7 +57,7 @@ export default function Home() {
                 <Image className={"scale-75 -translate-y-10 -translate-x-1.5 w-auto h-auto"} src={johan} alt={"Animated Image of Johan"} width={1} height={1}/>
             </div>
         </section>
-        <section className={"p-5 bg-neutral-200 dark:bg-slate-800 "}>
+        <section className={"p-10 bg-neutral-200 dark:bg-slate-800 "}>
             <h1 className={"text-3xl text-left text-black dark:text-white font-bold"}>
                 Projects
             </h1>

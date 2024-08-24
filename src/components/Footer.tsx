@@ -6,7 +6,7 @@ const Footer = () => {
         <br/>
           For any questions, comments, or concerns, please email me at:
         <br/>
-        <a href={"mailto:johannjo2000@gmail.com"} className={"text-gray-400"}>
+        <a href={"mailto:johannjo2000@gmail.com"} className={"text-sky-500 hover:text-sky-300"}>
           johannjo2000@gmail.com
         </a>
       </div>
