@@ -35,6 +35,20 @@ body {
   }
 }
 
+@keyframes gradient-wave {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-wave {
+  background-size: 200% 200%;
+  animation: gradient-wave 5s linear infinite;
+}
+
 /*@layer utilities {*/
 /*  .text-balance {*/
 /*    text-wrap: balance;*/
