@@ -5,46 +5,30 @@ import Footer from "../components/Footer";
 import {AiFillGithub, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import Image from "next/image";
 import error from "../assets/error.png"
-import Project from "../components/Project";
-import {useEffect, useState} from "react";
-import {db} from "../firebaseConfig";
-import { getDocs, collection, getDoc, doc } from "firebase/firestore"
+import ProjectCard from "../components/Project";
+import type {Project} from "../components/Project";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-
-    const [darkMode, setDarkMode] = useState(true);
-    const [importantImages, setImportantImages] = useState([]);
-    const [projects, setProjects] = useState([])
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [resume, setResume] = useState<string>("");
+    const [johan, setJohan] = useState<string>("");
+    const [darkMode, setDarkMode] = useState<boolean>(true);
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     }
-    // Fetches the projects from the database
-    const getProjects = async () => {
-        let data = []
-        await getDocs(collection(db, "projects")).then((qs) => {
-            data = qs.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-            setProjects(data)
-        });
-    }
-    // Fetches the important images from the database
-    const fetchImportantImages = async () => {
-        let data = [];
-        await getDocs(collection(db, "images")).then((qs) => {
-            data = qs.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-            setImportantImages(data);
-        });
-    }
     useEffect(() => {
-        getProjects();
-        fetchImportantImages();
+        const fetchData = async () => {
+            setJohan(await fetch("/api/images/johan").then(res => res.json()));
+            setResume(await fetch("/api/images/resume").then(res => res.json()));
+            setProjects(await fetch("/api/projects").then(res => res.json()));
+        }
+        fetchData();
     }, [])
     // Sorts the projects by order and maps them to the Project component
     const cards = projects.sort((p1, p2) => p2.order - p1.order).map(p =>
-        <Project key={p.id} title={p.name} desc={p.description} url={p.url}
-            tags={p.tags} img={p.img ? p.img : error}/>
+        <ProjectCard key={p.id} project={p}/>
     );
-    const johan = importantImages?.filter((img) => img.id === "johan")[0]?.url || "";
-    const resume = importantImages?.filter((img) => img.id === "resume")[0]?.url || "";
     return (
     <main className={darkMode ? "dark" : ""}>
         <section className="transition bg-neutral-200 dark:bg-slate-800">
