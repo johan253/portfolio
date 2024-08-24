@@ -34,7 +34,7 @@ export default function Home() {
             <Navbar toggleDark={toggleDarkMode} resumeLink={resume}/>
             <div className="text-center">
                 <p className="font-mono text-black dark:text-white">Hi, my name is</p>
-                <h2 className="text-5xl bg-gradient-to-b from-blue-700 to-blue-400 bg-clip-text text-transparent p-2 font-bold">Johan Hernandez</h2>
+                <h2 className="text-5xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 bg-clip-text text-transparent p-2 font-bold animate-gradient-wave">Johan Hernandez</h2>
                 <h3 className="text-2xl p-2 text-black dark:text-white">Aspiring Software Engineer</h3>
                 <p className="text-md p-5 leading-8 text-gray-600 dark:text-gray-400 ">
                     I am a Computer Science student at the University of Washington and Passionate about programming and solving problems
