@@ -19,8 +19,8 @@ export default function Home() {
     useEffect(() => {
         const fetchData = async () => {
             setJohan(await fetch("/api/images/johan").then(res => res.json()));
-            setResume(await fetch("/api/images/resume").then(res => res.json()));
-            setProjects(await fetch("/api/projects").then(res => res.json()));
+            setResume(await fetch("/api/images/resume", {cache: "no-store"}).then(res => res.json()));
+            setProjects(await fetch("/api/projects", {cache: "no-store"}).then(res => res.json()));
         }
         fetchData();
     }, [])
