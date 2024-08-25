@@ -1,7 +1,7 @@
 import { collection, getDocsFromServer } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
-export const revalidate = 0;
+export const revalidate = 600;
 
 export async function GET(req: Request) {
   try {
