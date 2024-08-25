@@ -1,23 +1,5 @@
-import { doc, getDocFromServer } from "firebase/firestore";
-import { db } from "../../../../firebaseConfig";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export const revalidate = 3600;
-
-export async function GET(req: Request) {
-  try {
-    const johan = await getDocFromServer(doc(db, "images", "johan")).then((doc) => doc.data());
-    return (
-      Response.json(johan.url, {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          "Cache-Control": "no-cache"
-        }
-      })
-    )
-  } catch (error) {
-    return (
-      Response.json(error, {status: 500})
-    )
-  }
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+    res.status(200).json({ data: 'This is a response!'});
 }
