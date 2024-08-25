@@ -12,3 +12,19 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Project {
+  id         String   @id @default(cuid())
+  name       String
+  desciption String
+  tags       String[]
+  url        String
+  img        String
+  order      Int
+}
+
+model Images {
+  id   String @id @default(cuid())
+  name String
+  url  String
+}
