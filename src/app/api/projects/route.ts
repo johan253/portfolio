@@ -1,6 +1,8 @@
 import { collection, getDocsFromServer } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
+export const revalidate = 0;
+
 export async function GET(req: Request) {
   try {
     const projects = await getDocsFromServer(collection(db, "projects")).then((qs) => {

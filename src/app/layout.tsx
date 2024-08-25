@@ -8,7 +8,6 @@ export const metadata = {
   description: "Portfolio",
 };
 
-export const fetchCache = "force-no-store";
 
 export default function RootLayout({ children }) {
   return (

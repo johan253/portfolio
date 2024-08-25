@@ -1,6 +1,8 @@
 import { doc, getDocFromServer } from "firebase/firestore";
 import { db } from "../../../../firebaseConfig";
 
+export const revalidate = 0;
+
 export async function GET(req: Request) {
   try {
     const resume = await getDocFromServer(doc(db, "images", "resume")).then((doc) => doc.data());
