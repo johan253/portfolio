@@ -1,11 +1,11 @@
 "use client";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import {AiFillGithub, AiFillLinkedin, AiFillMail} from "react-icons/ai";
 import Image from "next/image";
-import ProjectCard from "../components/Project";
-import type {Project} from "../components/Project";
+import ProjectCard from "@/components/Project";
+import type {Project} from "@/components/Project";
 import { useState, useEffect } from "react";
 
 export default function Home() {
