@@ -1,15 +1,27 @@
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDocFromServer } from "firebase/firestore";
 import { db } from "../../../../firebaseConfig";
 
 export async function GET(req: Request) {
   try {
-    const resume = await getDoc(doc(db, "images", "resume")).then((doc) => doc.data());
+    const resume = await getDocFromServer(doc(db, "images", "resume")).then((doc) => doc.data());
     return (
-      Response.json(resume.url, {status: 200})
+      Response.json(resume.url, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache"
+        }
+      })
     )
   } catch (error) {
     return (
-      Response.json(error, {status: 500})
+      Response.json({error},{
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache"
+        }
+      })
     )
   }
 }
