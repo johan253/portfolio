@@ -14,13 +14,13 @@ datasource db {
 }
 
 model Project {
-  id         String   @id @default(cuid())
-  name       String   @unique
-  desciption String
-  tags       String[]
-  url        String
-  img        String
-  order      Int      @unique
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String  @default("")
+  tags        String[]
+  url         String
+  img         String
+  order       Int      @unique
 }
 
 model Images {

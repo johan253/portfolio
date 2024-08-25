@@ -2,6 +2,8 @@ import prisma from '@/lib/prisma';
 
 const name = 'johan';
 
+export const revalidate = 600;
+
 export async function GET(req: Request) {
     const imageObj = await prisma.images.findUnique({
         where: {

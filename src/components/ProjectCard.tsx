@@ -1,30 +1,20 @@
+import React from "react";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
-import error from "../assets/error.png";
-
-export type Project = {
-    id: string,
-    name: string,
-    tags: { name: string }[],
-    img: string,
-    description: string,
-    url: string,
-    order: number
-}
+import type { Project } from "@prisma/client";
 
 export default function ProjectCard({ project }: { project: Project }) {
     const listTags = project.tags.map(tag =>
-        <div key={tag.name} className="bg-sky-500 text-xs rounded-full py-1 px-3 inline-block m-1 text-white transition-transform transform hover:scale-105">
-            {tag.name}
+        <div key={tag} className="bg-sky-500 text-xs rounded-full py-1 px-3 inline-block m-1 text-white transition-transform transform hover:scale-105">
+            {tag}
         </div>
     );
-
     return (
         <div className="bg-gradient-to-br from-neutral-100 dark:from-slate-900 dark:to-slate-800 max-w-screen-xl overflow-hidden rounded-3xl my-12 mx-auto shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
             <div className="md:flex group">
                 <div className="md:shrink-0 p-2 overflow-hidden">
                     <Image
-                        src={project.img || error}
+                        src={project.img || ""}
                         alt={project.name}
                         className="rounded-3xl h-48 w-full object-cover md:h-full md:w-56 transition-transform transform group-hover:scale-110"
                         width={1}
