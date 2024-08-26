@@ -28,7 +28,7 @@ export default function Home({children}: {children: React.ReactNode}) {
         <Navbar toggleDark={toggleDarkMode} resumeLink={resume} loading={loading}/>
         <div className="text-center">
           <p className="font-mono text-black dark:text-white">Hi, my name is</p>
-          <h1 className="typewriter max-w-fit text-5xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 bg-clip-text text-transparent p-2 font-bold animate-gradient-wave">Johan Hernandez</h1>
+          <h1 className="typewriter max-w-fit text-5xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 p-2 font-bold animate-gradient-wave">Johan Hernandez</h1>
           <h3 className="text-2xl p-2 text-black dark:text-white">Aspiring Software Engineer</h3>
           <p className="text-md p-12 max-w-screen-xl mx-auto leading-8 text-gray-600 dark:text-gray-400">
                     I am a Computer Science student at the University of Washington and Passionate about programming and solving problems
