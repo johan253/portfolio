@@ -8,7 +8,8 @@ import { useState, useEffect } from "react";
 
 export default function Home({children}: {children: React.ReactNode}) {
     const [resume, setResume] = useState<string>("");
-    const [johan, setJohan] = useState<string>("");
+    const [johan, setJohan] = useState<string>("https://png.pngtree.com/png-vector/20220705/ourmid/pngtree-loading-icon-vector-transparent-png-image_5687537.png");
+    const [loading, setLoading] = useState<boolean>(true);
     const [darkMode, setDarkMode] = useState<boolean>(true);
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
@@ -17,17 +18,14 @@ export default function Home({children}: {children: React.ReactNode}) {
         const fetchData = async () => {
             setJohan(await fetch("/api/images/johan").then(res => res.json()));
             setResume(await fetch("/api/images/resume").then(res => res.json()));
+            setLoading(false);
         }
         fetchData();
-    }, [])
-    // Sorts the projects by order and maps them to the Project component
-    // const cards = projects.sort((p1, p2) => p2.order - p1.order).map(p =>
-    //     <ProjectCard key={p.id} project={p}/>
-    // );
+    }, []);
     return (
     <main className={darkMode ? "dark" : ""}>
         <section className="transition bg-neutral-200 dark:bg-slate-800">
-            <Navbar toggleDark={toggleDarkMode} resumeLink={resume}/>
+            <Navbar toggleDark={toggleDarkMode} resumeLink={resume} loading={loading}/>
             <div className="text-center">
                 <p className="font-mono text-black dark:text-white">Hi, my name is</p>
                 <h2 className="text-5xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 bg-clip-text text-transparent p-2 font-bold animate-gradient-wave">Johan Hernandez</h2>
@@ -50,7 +48,11 @@ export default function Home({children}: {children: React.ReactNode}) {
                 </a>
             </div>
             <div className={"relative mx-auto bg-gradient-to-b from-blue-900 rounded-full w-80 h-80 mt-4"}>
-                <Image className={"scale-75 -translate-y-10 -translate-x-1.5 w-auto h-auto"} src={johan} alt={"Animated Image of Johan"} width={1} height={1}/>
+                <Image className={`scale-75 -translate-y-10 -translate-x-1.5 w-auto h-auto ${loading ? "animate-spin" : ""}`} 
+                src={johan} 
+                alt={"Animated Image of Johan"} 
+                width={1} 
+                height={1}/>
             </div>
         </section>
         {

@@ -13,7 +13,6 @@ export default async function ProjectList() {
     const cards = projects.sort((p1, p2) => p2.order - p1.order).map(p =>
         <ProjectCard key={p.id} project={p}/>
     );
-    console.log({projects});
     return (
         <section className={"p-10 bg-neutral-200 dark:bg-slate-800 "}>
             <h1 className={"text-3xl text-left text-black dark:text-white font-bold"}>
