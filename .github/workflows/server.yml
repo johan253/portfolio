@@ -1,0 +1,54 @@
+name: Build and Start Next.js Application
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  start-server:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: mydatabase
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Lint with ESLint
+        run: npm run lint
+
+      - name: Start application
+        run: npm start & echo $! > app.pid
+
+      - name: Wait for application to start
+        run: sleep 10
+
+      - name: Kill application
+        run: kill $(cat app.pid) || true
+
+      - name: Remove temporary artifacts
+        run: rm -f app.pid
+
+      - name: Set DATABASE_URL
+        run: echo "DATABASE_URL=postgres://postgres:password@localhost:5432/mydatabase" >> $GITHUB_ENV
