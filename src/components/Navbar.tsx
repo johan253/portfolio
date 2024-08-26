@@ -1,4 +1,4 @@
-import {BsFillMoonStarsFill} from 'react-icons/bs';
+import {BsFillMoonStarsFill} from "react-icons/bs";
 
 const Navbar = ({ toggleDark, resumeLink, loading }) => {
   return (
@@ -10,19 +10,19 @@ const Navbar = ({ toggleDark, resumeLink, loading }) => {
       </div>
       <ul className="flex items-center">
         <li className={"bg-neutral-200 dark:bg-slate-800 w-10 p-1 rounded-3xl shadow-inner shadow-gray-600 dark:shadow-black cursor-pointer"}
-            onClick={()=>toggleDark()}>
-            <BsFillMoonStarsFill className="transition fill-black dark:fill-white dark:translate-x-4"/>
+          onClick={()=>toggleDark()}>
+          <BsFillMoonStarsFill className="transition fill-black dark:fill-white dark:translate-x-4"/>
         </li>
         <li className={"transition ease-in-out hover:scale-95"}>
           <a href={resumeLink || "#"} className="bg-gradient-to-br from-blue-900 to-blue-600 text-white px-5 py-2 rounded-md ml-6">
-              {
-                loading ? "Loading..." : "Resume"
-              }
+            {
+              loading ? "Loading..." : "Resume"
+            }
           </a>
         </li>
       </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;
