@@ -1,5 +1,5 @@
 # Select Base Image
-FROM node
+FROM node:18-alpine
 
 # Set the working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port
-EXPOSE 3000
+# EXPOSE 3000
 
 # Start the app
-CMD ["npx", "serve@latest", "out"]
+CMD ["npm", "start"]
