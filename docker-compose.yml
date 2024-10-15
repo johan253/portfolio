@@ -19,11 +19,21 @@ services:
       - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - /certbot/conf:/etc/letsencrypt
+      - /certbot/www:/var/www/certbot
     networks:
       - app-network
     depends_on:
       - nextjs
 
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - /certbot/conf:/etc/letsencrypt
+      - /certbot/www:/var/www/certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot --email johannjo2000@gmail.com --agree-tos --no-eff-email -d johanistesting.work -d www.johanistesting.work
 networks:
   app-network:
     driver: bridge
