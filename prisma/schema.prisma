@@ -28,3 +28,13 @@ model Images {
   name String @unique
   url  String
 }
+
+model Experience {
+  id          String   @id @default(cuid())
+  title       String
+  company     String
+  location    String
+  startDate   DateTime
+  endDate     DateTime?
+  bullets     String[]
+}
