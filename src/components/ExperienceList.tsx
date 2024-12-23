@@ -14,7 +14,7 @@ export default function ExperienceList() {
         setExperiences(data);
       })
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   const expCards = experiences.map((exp) => <ExperienceCard key={exp.id} experience={exp} />);
 
