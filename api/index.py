@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from .models import Project, Image, Experience
 from .db import get_db
 
-app = FastAPI()
+app = FastAPI(docs_url="/api/docs", openapi_url="/api/openapi.json")
 
 @app.get("/api")
 def root():

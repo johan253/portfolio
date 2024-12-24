@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const isDev = process.env.NODE_ENV === "development";
+
 const nextConfig = {
   images: {
     domains: ["firebasestorage.googleapis.com"],
@@ -8,15 +11,24 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://127.0.0.1:8000/api/:path*"
+        destination: 
+          isDev
+            ? "http://127.0.0.1:8000/api/:path*"
+            : "/api/"
       },
       {
-        source: "/docs/:path*",
-        destination: "http://127.0.0.1:8000/docs/:path*"
+        source: "/docs",
+        destination: 
+          isDev
+            ? "http://127.0.0.1:8000/api/docs"
+            : "/api/docs"
       },
       {
         source: "/openapi.json",
-        destination: "http://127.0.0.1:8000/openapi.json"
+        destination: 
+          isDev
+            ? "http://127.0.0.1:8000/api/openapi.json"
+            : "/api/openapi.json"
       }
     ];
   }
