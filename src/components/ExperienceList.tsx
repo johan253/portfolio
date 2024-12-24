@@ -20,13 +20,13 @@ export default function ExperienceList() {
     <section className="bg-neutral-200 dark:bg-slate-800 text-black dark:text-white p-10">
       <h1 className="text-4xl font-bold mb-6">Experience</h1>
       {loading ? (
-        <div className="space-y-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {Array.from({ length: 2 }).map((_, index) => (
             <SkeletonCard key={index} />
           ))}
         </div>
       ) : (
-        <div className="space-y-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {experiences.map((exp) => (
             <ExperienceCard key={exp.id} experience={exp} />
           ))}

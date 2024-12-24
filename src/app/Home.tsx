@@ -47,8 +47,8 @@ export default function Home({children}: {children: React.ReactNode}) {
             <AiFillMail className={"transition hover:scale-105 hover:fill-red-600"}/>
           </a>
         </div>
-        <div className={"relative mx-auto bg-gradient-to-b from-blue-900 rounded-full w-80 h-80 mt-12"}>
-          <Image className={`scale-75 -translate-y-10 -translate-x-1.5 w-auto h-auto ${loading ? "animate-spin" : ""}`} 
+        <div className={"relative mx-auto bg-gradient-to-b from-blue-900 rounded-full w-40 h-40 mt-12"}>
+          <Image className={`scale-75 -translate-y-6 -translate-x-1.5 w-auto h-auto ${loading ? "animate-spin" : ""}`} 
             src={johan} 
             alt={"Animated Image of Johan"} 
             width={1} 

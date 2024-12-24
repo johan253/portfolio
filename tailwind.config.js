@@ -17,12 +17,12 @@ module.exports = {
         burtons: "burtons",
       },
       animation: {
-        "fade-in": "fadeIn 0.5s ease-in-out forwards",
+        "fade-in": "fadeIn 0.5s ease-in forwards",
       },
       keyframes: {
         fadeIn: {
-          "0%": { transform: "translateX(-10px)", opacity: "0"},
-          "100%": { transform: "translateX(0)", opacity: "1"},
+          "0%": { opacity: "0", transform: "translateX(-10px)"},
+          "100%": { opacity: "1", transform: "translateX(0)"},
         },
       },
     },

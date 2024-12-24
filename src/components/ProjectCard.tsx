@@ -4,13 +4,15 @@ import { AiFillGithub } from "react-icons/ai";
 import type { Project } from "@prisma/client";
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const listTags = project.tags.map(tag =>
-    <div key={tag} className="bg-sky-500 text-xs rounded-full py-1 px-3 inline-block m-1 text-white transition-transform transform hover:scale-105">
+  const listTags = project.tags.map((tag, index) =>
+    <div key={index} className="bg-sky-500 text-xs rounded-full py-1 px-3 inline-block m-1 text-white transition-transform transform hover:scale-105 opacity-0 animate-fade-in"
+      style={{ animationDelay: `${index * 200}ms` }}
+    >
       {tag}
     </div>
   );
   return (
-    <div className="bg-gradient-to-br from-neutral-100 dark:from-slate-900 dark:to-slate-800 max-w-screen-xl overflow-hidden rounded-3xl my-12 mx-auto shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+    <div className="bg-gradient-to-br from-neutral-100 dark:from-slate-900 dark:to-slate-800 max-w-screen-xl overflow-hidden rounded-3xl m-6 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
       <div className="md:flex group">
         <div className="md:shrink-0 p-2 overflow-hidden">
           <Image

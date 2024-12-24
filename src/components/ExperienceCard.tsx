@@ -6,10 +6,10 @@ export default function ExperienceCard({ experience }: { experience: Experience 
       <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-2 animate-fade-in">
         {experience.title}
       </h2>
-      <p className="text-lg text-gray-700 dark:text-gray-300 animate-fade-in delay-[100ms]">
+      <p className="text-lg text-gray-700 dark:text-gray-300 animate-fade-in">
         {experience.company}
       </p>
-      <p className="text-sm text-gray-500 dark:text-gray-400 animate-fade-in delay-[200ms]">
+      <p className="text-sm text-gray-500 dark:text-gray-400 animate-fade-in ">
         {new Date(experience.startDate).toLocaleDateString()} -{" "}
         {experience.endDate ? new Date(experience.endDate).toLocaleDateString() : "Present"}
       </p>
@@ -17,9 +17,8 @@ export default function ExperienceCard({ experience }: { experience: Experience 
         {experience.bullets.map((bullet, index) => (
           <li
             key={index}
-            className={`flex items-center text-gray-600 dark:text-gray-300 animate-fade-in delay-[${
-              300 + index * 100
-            }ms]`}
+            className={"flex items-center text-gray-600 dark:text-gray-300 opacity-0 animate-fade-in"}
+            style={{ animationDelay: `${index * 400}ms` }}
           >
             <span className="mr-2">&#8226;</span>
             {bullet}
