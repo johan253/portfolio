@@ -15,7 +15,16 @@ module.exports = {
       },
       fontFamily: {
         burtons: "burtons",
-      }
+      },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-in-out forwards",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { transform: "translateX(-10px)", opacity: "0"},
+          "100%": { transform: "translateX(0)", opacity: "1"},
+        },
+      },
     },
   },
   plugins: [],
