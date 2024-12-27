@@ -18,11 +18,16 @@ module.exports = {
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in forwards",
+        draw: "draw 2s linear forwards",
       },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0", transform: "translateX(-10px)"},
           "100%": { opacity: "1", transform: "translateX(0)"},
+        },
+        draw: {
+          from: { "stroke-dashoffset": "800"},
+          to: { "stroke-dashoffset": "0"},
         },
       },
     },
