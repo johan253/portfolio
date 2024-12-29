@@ -106,3 +106,7 @@ body {
     stroke-dashoffset: 0;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

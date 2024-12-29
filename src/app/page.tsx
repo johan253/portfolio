@@ -60,8 +60,12 @@ export default function Home() {
           />
         </div>
       </section>
-      <ExperienceList />
-      <ProjectList />
+      <section id="experience">
+        <ExperienceList />
+      </section>
+      <section id="projects">
+        <ProjectList />
+      </section>
       <Footer />
     </main>
   );
