@@ -3,10 +3,10 @@ import type { Experience } from "@prisma/client";
 export default function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <div className="overflow-hidden">
-      <h2 className="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-2 animate-fade-in">
+      <h2 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2 animate-fade-in">
         {experience.title}
       </h2>
-      <p className="text-lg text-gray-700 dark:text-gray-300 animate-fade-in">
+      <p className="text-md text-gray-700 dark:text-gray-300 animate-fade-in">
         {experience.company}
       </p>
       <p className="text-sm text-gray-500 dark:text-gray-400 animate-fade-in ">
