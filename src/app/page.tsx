@@ -33,7 +33,9 @@ export default function Home() {
           <h1 className="typewriter max-w-fit text-5xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 p-2 font-bold animate-gradient-wave">
             Johan Hernandez
           </h1>
-          <h3 className="text-2xl p-2 text-black dark:text-white">Aspiring Software Engineer</h3>
+          <h3 className="text-2xl p-2 text-black dark:text-white">
+            Software Engineer
+          </h3>
           <p className="text-md p-12 max-w-screen-xl mx-auto leading-8 text-gray-600 dark:text-gray-400">
             I am a Computer Science student at the University of Washington and passionate about programming and solving problems alongside others. I
             love to learn new things every day and face different kinds of challenges along the way. Connect with me and get to know me better!

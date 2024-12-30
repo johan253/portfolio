@@ -21,28 +21,30 @@ const Navbar = ({ toggleDark, resumeLink, loading }) => {
       </div>
 
       {/* Dropdown Menu */}
-      {menuOpen && (
-        <ul className="absolute top-16 left-0 w-full bg-neutral-50 dark:bg-slate-700 shadow-lg">
-          <li className="p-3 border-b border-neutral-300 dark:border-slate-600">
-            <a
-              href="#experience"
-              className="text-black dark:text-white block hover:bg-neutral-200 dark:hover:bg-slate-600"
-              onClick={() => setMenuOpen(false)}
-            >
-              Experience
-            </a>
-          </li>
-          <li className="p-3 border-b border-neutral-300 dark:border-slate-600">
-            <a
-              href="#projects"
-              className="text-black dark:text-white block hover:bg-neutral-200 dark:hover:bg-slate-600"
-              onClick={() => setMenuOpen(false)}
-            >
-              Projects
-            </a>
-          </li>
-        </ul>
-      )}
+      <ul
+        className={`absolute top-full left-0 w-full bg-neutral-50 dark:bg-slate-700 shadow-lg z-40 transition-all duration-300 ease-in-out ${
+          menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5 pointer-events-none"
+        }`}
+      >
+        <li className="p-3 border-b border-neutral-300 dark:border-slate-600">
+          <a
+            href="#experience"
+            className="text-black dark:text-white block transition hover:translate-x-2"
+            onClick={() => setMenuOpen(false)}
+          >
+            Experience
+          </a>
+        </li>
+        <li className="p-3 border-b border-neutral-300 dark:border-slate-600">
+          <a
+            href="#projects"
+            className="text-black dark:text-white block transition hover:translate-x-2"
+            onClick={() => setMenuOpen(false)}
+          >
+            Projects
+          </a>
+        </li>
+      </ul>
 
       {/* Other Navbar Items */}
       <div className="translate-x-12 hidden sm:block">
