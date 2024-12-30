@@ -26,7 +26,7 @@ export default function Home() {
   }, []);
   return (
     <main className={darkMode ? "dark" : ""}>
-      <section className="transition bg-neutral-200 dark:bg-slate-800 pt-24">
+      <section className="transition bg-neutral-200 dark:bg-slate-800 pt-24 pb-8">
         <Navbar toggleDark={toggleDarkMode} resumeLink={resume} loading={loading} />
         <div className="text-center">
           <p className="font-mono text-black dark:text-white">Hi, my name is</p>

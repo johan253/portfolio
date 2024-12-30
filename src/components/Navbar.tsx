@@ -10,6 +10,20 @@ const Navbar = ({ toggleDark, resumeLink, loading }) => {
     setMenuOpen((prev) => !prev);
   };
 
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -80; // Offset amount (e.g., 80px above the section)
+      const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: yPosition,
+        behavior: "smooth",
+      });
+    }
+    setMenuOpen(false); // Close the menu
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-neutral-50 dark:bg-slate-700 shadow-md shadow-neutral-300 dark:shadow-slate-950 p-3 flex justify-between items-center">
       {/* Menu Icon */}
@@ -27,22 +41,20 @@ const Navbar = ({ toggleDark, resumeLink, loading }) => {
         }`}
       >
         <li className="p-3 border-b border-neutral-300 dark:border-slate-600">
-          <a
-            href="#experience"
-            className="text-black dark:text-white block transition hover:translate-x-2"
-            onClick={() => setMenuOpen(false)}
+          <button
+            onClick={() => handleScroll("experience")}
+            className="text-black dark:text-white block w-full text-left transition hover:translate-x-2"
           >
             Experience
-          </a>
+          </button>
         </li>
         <li className="p-3 border-b border-neutral-300 dark:border-slate-600">
-          <a
-            href="#projects"
-            className="text-black dark:text-white block transition hover:translate-x-2"
-            onClick={() => setMenuOpen(false)}
+          <button
+            onClick={() => handleScroll("projects")}
+            className="text-black dark:text-white block w-full text-left transition hover:translate-x-2"
           >
             Projects
-          </a>
+          </button>
         </li>
       </ul>
 

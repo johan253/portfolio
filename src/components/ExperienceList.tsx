@@ -17,7 +17,7 @@ export default function ExperienceList() {
   }, []);
 
   return (
-    <section className="bg-neutral-200 dark:bg-slate-800 text-black dark:text-white p-10">
+    <section className="bg-neutral-200 dark:bg-slate-800 text-black dark:text-white p-10 pt-0">
       <h1 className="text-3xl font-bold mb-6">Experience</h1>
       {loading ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
