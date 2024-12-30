@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     </div>
   );
   return (
-    <div className="bg-gradient-to-br from-neutral-100 dark:from-slate-900 dark:to-slate-800 max-w-screen-xl overflow-hidden rounded-3xl m-6 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+    <div className="transition bg-gradient-to-br from-neutral-100 dark:from-slate-900 dark:to-slate-800 max-w-screen-xl overflow-hidden rounded-3xl m-6 shadow-lg hover:scale-105 hover:shadow-2xl">
       <div className="md:flex group">
         <div className="md:shrink-0 p-2 overflow-hidden">
           <Image

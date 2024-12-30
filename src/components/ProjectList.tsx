@@ -25,7 +25,7 @@ export default function ProjectList() {
   }, []);
 
   return (
-    <section className="p-10 pt-0 bg-neutral-200 dark:bg-slate-800">
+    <section className="p-10 pt-0 transition bg-neutral-200 dark:bg-slate-800">
       <h1 className="text-3xl text-left text-black dark:text-white font-bold">
         Projects
       </h1>

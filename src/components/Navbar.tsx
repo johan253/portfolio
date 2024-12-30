@@ -1,5 +1,5 @@
 import { BsFillMoonStarsFill } from "react-icons/bs";
-import { FaBars } from "react-icons/fa"; // Menu icon
+import { FaBars, FaTimes } from "react-icons/fa"; // Menu icon
 import { useState } from "react";
 import Signature from "./Signature";
 
@@ -25,13 +25,22 @@ const Navbar = ({ toggleDark, resumeLink, loading }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-neutral-50 dark:bg-slate-700 shadow-md shadow-neutral-300 dark:shadow-slate-950 p-3 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full z-50 transition bg-neutral-50 dark:bg-slate-700 shadow-md shadow-neutral-300 dark:shadow-slate-950 p-3 flex justify-between items-center">
       {/* Menu Icon */}
       <div
-        className="p-3 text-white rounded-md bg-neutral-200 dark:bg-slate-800 cursor-pointer"
+        className="p-6 text-white rounded-md bg-neutral-200 dark:bg-slate-800 cursor-pointer flex items-center justify-center relative"
         onClick={toggleMenu}
       >
-        <FaBars className="text-2xl text-black dark:text-white" />
+        <FaBars
+          className={`text-2xl text-black dark:text-white transition-transform duration-300 absolute ${
+            menuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
+          }`}
+        />
+        <FaTimes
+          className={`text-2xl text-black dark:text-white transition-transform duration-300 absolute ${
+            menuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
+          }`}
+        />
       </div>
 
       {/* Dropdown Menu */}
