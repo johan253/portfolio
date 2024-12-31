@@ -1,3 +1,4 @@
+"use client";
 import type { Experience } from "@prisma/client";
 
 export default function ExperienceCard({ experience }: { experience: Experience }) {

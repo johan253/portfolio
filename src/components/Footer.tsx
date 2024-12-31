@@ -1,3 +1,4 @@
+"use client";
 const Footer = () => {
   return(
     <footer className={"p-5 pt-12 bg-gradient-to-b dark:from-slate-800 from from-neutral-200 via-black to-black"}>

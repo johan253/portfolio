@@ -1,3 +1,4 @@
+"use client";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaBars, FaTimes } from "react-icons/fa"; // Menu icon
 import { useState } from "react";
