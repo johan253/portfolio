@@ -1,3 +1,0 @@
-env:
-  - variable: DATABASE_URL
-    value: projects/861786096074/secrets/DATABASE_URL

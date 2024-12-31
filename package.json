@@ -1,7 +1,7 @@
 {
-  "homepage": "https://johan253.github.io/portfolio",
+  "homepage": "https://johanhernandez.com",
   "name": "portfolio",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
