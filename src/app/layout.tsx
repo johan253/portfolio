@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { logVisit } from "@/lib/actions";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,7 +10,8 @@ export const metadata = {
 };
 
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  await logVisit();
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>

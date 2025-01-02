@@ -38,3 +38,11 @@ model Experience {
   endDate     DateTime?
   bullets     String[]
 }
+
+model Visits {
+  id         String @id @default(cuid())
+  visitor_id String
+  date       DateTime @default(now())
+  country    String?
+  city       String?
+}
