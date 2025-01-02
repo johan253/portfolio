@@ -5,7 +5,7 @@ const Footer = () => {
       <div className={"text-xs text-center"}>
         This website was made and is maintained by Johan Hernandez.
         <br/>
-          For any questions, comments, or concerns, please email me at:
+        For any questions, comments, or concerns, please email me at:
         <br/>
         <a href={"mailto:johannjo2000@gmail.com"} className={"text-sky-500 hover:text-sky-300"}>
           johannjo2000@gmail.com

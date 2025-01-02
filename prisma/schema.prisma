@@ -43,6 +43,6 @@ model Visits {
   id         String @id @default(cuid())
   visitor_id String
   date       DateTime @default(now())
-  country    String?
+  country    String   @default("Unknown")
   city       String?
 }
