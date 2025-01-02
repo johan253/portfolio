@@ -1,9 +1,9 @@
-import prisma from '@/lib/prisma';
+import prisma from "@/lib/prisma";
 
 export async function GET(req: Request) {
-  if (req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
+  if (req.headers.get("Authorization") !== `Bearer ${process.env.CRON_SECRET}`) {
     return Response.json({
-      error: 'Unauthorized'
+      error: "Unauthorized"
     }, { status: 401 });
   }
 

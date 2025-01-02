@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export function middleware(request: Request) {
   const response = NextResponse.next();
-  const cookies = request.headers.get('cookie') || "";
+  const cookies = request.headers.get("cookie") || "";
 
   // Check if the visitorId cookie exists
   if (!cookies.includes("visitorId")) {
@@ -20,4 +20,4 @@ export function middleware(request: Request) {
 
 export const config = {
   matcher: ["/"]
-}
+};

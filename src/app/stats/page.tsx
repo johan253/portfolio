@@ -1,4 +1,5 @@
 import { getVisitStats } from "@/lib/actions";
+import Link from "next/link";
 
 export const metadata = {
   title: "Visit Statistics",
@@ -64,9 +65,9 @@ export default async function VisitsPage() {
         </section>
       </div>
       <div>
-        <a href="/" className="text-blue-400 hover:underline block text-center mt-8">
+        <Link href="/" className="text-blue-400 hover:underline block text-center mt-8">
           Return to Home
-        </a>
+        </Link>
       </div>
     </main>
   );
