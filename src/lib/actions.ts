@@ -38,8 +38,8 @@ export async function logVisit() {
     await prisma.visits.create({
       data: {
         visitor_id: visitorId,
-        country,
-        city,
+        country: country ?? "Unknown",
+        city: city ?? "Unknown",
       },
     });
   }
