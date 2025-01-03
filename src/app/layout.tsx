@@ -11,7 +11,7 @@ export const metadata = {
 
 
 export default async function RootLayout({ children }) {
-  await logVisit();
+  logVisit().catch(console.error);
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>

@@ -14,12 +14,12 @@ export async function logVisit() {
 
   const ipAddr = headerStore.get("x-real-ip") || headerStore.get("x-forwarded-for") || headerStore.get("remote-addr");
   let country: string;
-  let city: string;
+  let state: string;
   try {
     const location = await fetch(`https://ipapi.co/${ipAddr}/json/`)
       .then((res) => res.json());
     country = location?.country_name || null;
-    city = location?.city || null;
+    state = location?.region || null;
   } catch (e) {
     console.warn("Failed to fetch location data", e);
   }
@@ -39,7 +39,7 @@ export async function logVisit() {
       data: {
         visitor_id: visitorId,
         country: country ?? "Unknown",
-        city: city ?? "Unknown",
+        state: state ?? "Unknown",
       },
     });
   }

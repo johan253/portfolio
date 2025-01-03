@@ -48,7 +48,9 @@ export default async function VisitsPage() {
                 </tr>
               </thead>
               <tbody>
-                {stats.countryPercentages.map((country, index) => (
+                {stats.countryPercentages
+                  .sort((a, b) => b.percentage.localeCompare(a.percentage))
+                  .map((country, index) => (
                   <tr
                     key={index}
                     className={`text-gray-300 ${
