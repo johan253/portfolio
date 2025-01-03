@@ -51,16 +51,16 @@ export default async function VisitsPage() {
                 {stats.countryPercentages
                   .sort((a, b) => b.percentage.localeCompare(a.percentage))
                   .map((country, index) => (
-                  <tr
-                    key={index}
-                    className={`text-gray-300 ${
-                      index % 2 === 0 ? "bg-slate-800" : "bg-slate-900"
-                    }`}
-                  >
-                    <td className="px-6 py-4">{country.country}</td>
-                    <td className="px-6 py-4">{country.percentage}%</td>
-                  </tr>
-                ))}
+                    <tr
+                      key={index}
+                      className={`text-gray-300 ${
+                        index % 2 === 0 ? "bg-slate-800" : "bg-slate-900"
+                      }`}
+                    >
+                      <td className="px-6 py-4">{country.country}</td>
+                      <td className="px-6 py-4">{country.percentage}%</td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
