@@ -23,7 +23,7 @@ export default function ProjectCard({
     <div className="transition-all">
       <div
         onClick={() => setExpanded((prev) => !prev)}
-        className="flex items-center justify-between cursor-pointer select-none"
+        className="flex cursor-pointer select-none items-center justify-between"
       >
         <div className="flex items-center gap-3">
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
@@ -34,19 +34,19 @@ export default function ProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-zinc-600 dark:text-zinc-400 hover:text-sky-500"
+            className="text-zinc-600 hover:text-sky-500 dark:text-zinc-400"
           >
-            <AiFillGithub className="w-6 h-6 hover:text-sky-500 transition" />
+            <AiFillGithub className="size-6 transition hover:text-sky-500" />
           </a>
         </div>
         <AiOutlineDown
-          className={`w-5 h-5 transition-transform duration-300 ${expanded ? "rotate-180" : "rotate-0"
+          className={`size-5 transition-transform duration-300 ${expanded ? "rotate-180" : "rotate-0"
             }`}
         />
       </div>
 
       <p
-        className={`mt-2 text-zinc-600 dark:text-zinc-300 transition-transform duration-300 ${expanded ? "" : "line-clamp-2"
+        className={`mt-2 text-zinc-600 transition-transform duration-300 dark:text-zinc-300 ${expanded ? "" : "line-clamp-2"
           }`}
       >
         {project.description}
@@ -56,7 +56,7 @@ export default function ProjectCard({
         {project.tags.map((tag, i) => (
           <span
             key={i}
-            className="bg-sky-500 text-white text-xs font-medium px-3 py-1 rounded-full"
+            className="rounded-full bg-sky-500 px-3 py-1 text-xs font-medium text-white"
           >
             {tag}
           </span>
@@ -68,14 +68,14 @@ export default function ProjectCard({
         style={{
           maxHeight: expanded ? contentRef.current?.scrollHeight : 0,
         }}
-        className={`overflow-hidden transition-all duration-500 ease-in-out flex justify-center`}
+        className={`flex justify-center overflow-hidden transition-all duration-500 ease-in-out`}
       >
         <div className="mt-6">
-          <div className="w-fit rounded-2xl overflow-hidden mb-4">
+          <div className="mb-4 w-fit overflow-hidden rounded-2xl">
             <Image
               src={project.img || ""}
               alt={project.name}
-              className="w-full h-64 object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+              className="h-64 w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
               width={640}
               height={256}
             />

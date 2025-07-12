@@ -28,17 +28,17 @@ export default function ExperienceCard({ experience }: { experience: Experience 
       </div>
 
       {/* Bullet Points */}
-      <ul className="mt-3 space-y-2 pl-4 border-l-2 border-zinc-300 dark:border-zinc-700">
+      <ul className="mt-3 space-y-2 border-l-2 border-zinc-300 pl-4 dark:border-zinc-700">
         {experience.bullets.map((bullet, index) => (
           <li
             key={index}
-            className="relative text-zinc-700 dark:text-zinc-300 leading-relaxed pl-5 opacity-0 animate-fade-in"
+            className="relative animate-fade-in pl-5 leading-relaxed text-zinc-700 opacity-0 dark:text-zinc-300"
             style={{
               animationDelay: `${index * 100}ms`,
               animationFillMode: "forwards",
             }}
           >
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-sky-500" />
+            <span className="absolute left-0 top-1/2 size-2 -translate-y-1/2 rounded-full bg-sky-500" />
             {bullet}
           </li>
         ))}

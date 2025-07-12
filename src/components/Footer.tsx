@@ -2,8 +2,8 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-700 py-12 px-6">
-      <div className="max-w-4xl mx-auto text-center text-sm text-zinc-500 dark:text-zinc-400 space-y-2">
+    <footer className="border-t border-zinc-200 bg-neutral-100 px-6 py-12 dark:border-zinc-700 dark:bg-zinc-900">
+      <div className="mx-auto max-w-4xl space-y-2 text-center text-sm text-zinc-500 dark:text-zinc-400">
         <p>
           Designed and built by <span className="font-medium text-zinc-800 dark:text-white">Johan Hernandez</span>.
         </p>
@@ -12,12 +12,12 @@ const Footer = () => {
           <br />
           <a
             href="mailto:johannjo2000@gmail.com"
-            className="text-sky-500 hover:text-sky-400 transition-colors"
+            className="text-sky-500 transition-colors hover:text-sky-400"
           >
             johannjo2000@gmail.com
           </a>
         </p>
-        <p className="text-xs mt-4 opacity-50">
+        <p className="mt-4 text-xs opacity-50">
           &copy; {new Date().getFullYear()} Johan Hernandez. All rights reserved.
         </p>
       </div>

@@ -19,13 +19,13 @@ const Navbar = ({ darkMode, toggleDark, resumeLink, loading }: { darkMode: boole
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 transition-all shadow-sm">
-      <div className="relative flex justify-between sm:justify-end items-center max-w-7xl mx-auto">
+    <nav className="fixed left-0 top-0 z-50 w-full border-b border-zinc-200 bg-white/80 px-4 py-3 shadow-sm backdrop-blur-md transition-all dark:border-zinc-800 dark:bg-zinc-900/80 sm:px-6">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between sm:justify-end">
         {/* Menu Toggle */}
         <div className="flex items-center justify-center sm:hidden">
           <button
             onClick={toggleMenu}
-            className="text-zinc-700 dark:text-zinc-300 focus:outline-none text-2xl"
+            className="text-2xl text-zinc-700 focus:outline-none dark:text-zinc-300"
             aria-label="Toggle menu"
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
@@ -33,7 +33,7 @@ const Navbar = ({ darkMode, toggleDark, resumeLink, loading }: { darkMode: boole
         </div>
 
         {/* Signature Logo */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:block">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 sm:block">
           <Signature />
         </div>
 
@@ -42,13 +42,13 @@ const Navbar = ({ darkMode, toggleDark, resumeLink, loading }: { darkMode: boole
           {/* Dark Mode Toggle */}
           <li
             onClick={toggleDark}
-            className="cursor-pointer p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition"
+            className="cursor-pointer rounded-full p-2 transition hover:bg-zinc-200 dark:hover:bg-zinc-700"
           >
             {
               darkMode ? (
-                <BsSunFill className="text-white text-xl" aria-label="Light mode" />
+                <BsSunFill className="text-xl text-white" aria-label="Light mode" />
               ) : (
-                <BsFillMoonStarsFill className="text-zinc-800 text-xl" aria-label="Dark mode" />
+                <BsFillMoonStarsFill className="text-xl text-zinc-800" aria-label="Dark mode" />
               )
             }
           </li>
@@ -57,7 +57,7 @@ const Navbar = ({ darkMode, toggleDark, resumeLink, loading }: { darkMode: boole
           <li>
             <a
               href={resumeLink || "#"}
-              className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-md shadow transition"
+              className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white shadow transition hover:bg-blue-700"
             >
               {loading ? "Loading..." : "Resume"}
             </a>
@@ -67,13 +67,13 @@ const Navbar = ({ darkMode, toggleDark, resumeLink, loading }: { darkMode: boole
 
       {/* Dropdown for mobile */}
       <ul
-        className={`sm:hidden flex flex-col bg-white dark:bg-zinc-800 shadow-md mt-3 rounded-md overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-40 py-2" : "max-h-0 py-0"
+        className={`mt-3 flex flex-col overflow-hidden rounded-md bg-white shadow-md transition-all duration-300 dark:bg-zinc-800 sm:hidden ${menuOpen ? "max-h-40 py-2" : "max-h-0 py-0"
           }`}
       >
         <li>
           <button
             onClick={() => handleScroll("experience")}
-            className="w-full text-left px-6 py-3 text-zinc-800 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-700 transition"
+            className="w-full px-6 py-3 text-left text-zinc-800 transition hover:bg-zinc-100 dark:text-white dark:hover:bg-zinc-700"
           >
             Experience
           </button>
@@ -81,7 +81,7 @@ const Navbar = ({ darkMode, toggleDark, resumeLink, loading }: { darkMode: boole
         <li>
           <button
             onClick={() => handleScroll("projects")}
-            className="w-full text-left px-6 py-3 text-zinc-800 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-700 transition"
+            className="w-full px-6 py-3 text-left text-zinc-800 transition hover:bg-zinc-100 dark:text-white dark:hover:bg-zinc-700"
           >
             Projects
           </button>

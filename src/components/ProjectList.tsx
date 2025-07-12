@@ -26,14 +26,14 @@ export default function ProjectList() {
   }, []);
 
   return (
-    <section className="bg-neutral-100 dark:bg-zinc-900 px-6 py-20 sm:px-12 lg:px-32 transition border-t border-zinc-200 dark:border-zinc-700 ">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-12">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white">
+    <section className="border-t border-zinc-200 bg-neutral-100 px-6 py-20 transition dark:border-zinc-700 dark:bg-zinc-900 sm:px-12 lg:px-32 ">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 flex items-center justify-between">
+          <h1 className="text-4xl font-extrabold text-zinc-900 dark:text-white sm:text-5xl">
             Projects
           </h1>
           <button
-            className="text-sm hover:bg-zinc-800 text-white px-4 py-2 rounded-md transition"
+            className="rounded-md px-4 py-2 text-sm text-white transition hover:bg-zinc-800"
             onClick={() => setExpandAll((prev) => !prev)}
           >
             {expandAll ? "Collapse All" : "Expand All"}
@@ -44,7 +44,7 @@ export default function ProjectList() {
             loading ? (
               <SkeletonCard key={index} />
             ) : (
-              <ProjectCard key={project.id} project={project} expandAll={expandAll} />
+              <ProjectCard key={(project as Project).id} project={project as Project} expandAll={expandAll} />
             )
           )}
         </div>
@@ -56,9 +56,9 @@ export default function ProjectList() {
 function SkeletonCard() {
   return (
     <div className="animate-pulse space-y-4">
-      <div className="w-full h-52 bg-zinc-300 dark:bg-zinc-600 rounded-xl" />
-      <div className="h-6 w-2/3 bg-zinc-300 dark:bg-zinc-600 rounded" />
-      <div className="h-4 w-1/2 bg-zinc-300 dark:bg-zinc-600 rounded" />
+      <div className="h-52 w-full rounded-xl bg-zinc-300 dark:bg-zinc-600" />
+      <div className="h-6 w-2/3 rounded bg-zinc-300 dark:bg-zinc-600" />
+      <div className="h-4 w-1/2 rounded bg-zinc-300 dark:bg-zinc-600" />
     </div>
   );
 }

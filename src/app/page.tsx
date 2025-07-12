@@ -32,34 +32,34 @@ export default function Home() {
   return (
     <main className={darkMode ? "dark" : ""}>
       {/* Hero / Intro Section */}
-      <section className="bg-neutral-100 dark:bg-zinc-900 pt-24 pb-16 transition">
+      <section className="bg-neutral-100 pb-16 pt-24 transition dark:bg-zinc-900">
         <Navbar darkMode={darkMode} toggleDark={toggleDarkMode} resumeLink={resume} loading={loading} />
 
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="mb-2 text-sm text-zinc-600 dark:text-zinc-400">
             Hi, my name is
           </p>
 
-          <h1 className="typewriter max-w-fit text-4xl sm:text-6xl font-bold bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 text-transparent bg-clip-text animate-gradient-wave mb-4">
+          <h1 className="typewriter animate-gradient-wave mb-4 max-w-fit bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 bg-clip-text text-4xl font-bold text-transparent sm:text-6xl">
             Johan Hernandez
           </h1>
 
-          <h2 className="text-2xl text-zinc-700 dark:text-zinc-300 mb-6">
+          <h2 className="mb-6 text-2xl text-zinc-700 dark:text-zinc-300">
             Software Engineer
           </h2>
 
-          <p className="text-md text-zinc-600 dark:text-zinc-400 leading-relaxed mb-10">
+          <p className="text-md mb-10 leading-relaxed text-zinc-600 dark:text-zinc-400">
             I&apos;m a Computer Science student at the University of Washington with a passion for building things and solving meaningful problems. I enjoy collaborating with others and tackling new challenges while continuously learning and improving. Let&apos;s connect!
           </p>
 
-          <div className="flex justify-center gap-6 text-zinc-600 dark:text-zinc-400 text-2xl mb-10">
+          <div className="mb-10 flex justify-center gap-6 text-2xl text-zinc-600 dark:text-zinc-400">
             <a
               href="https://www.linkedin.com/in/johan253/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <AiFillLinkedin className="hover:text-blue-600 transition-transform hover:scale-110" />
+              <AiFillLinkedin className="transition-transform hover:scale-110 hover:text-blue-600" />
             </a>
             <a
               href="https://github.com/johan253"
@@ -67,21 +67,21 @@ export default function Home() {
               rel="noopener noreferrer"
               aria-label="GitHub"
             >
-              <AiFillGithub className="hover:text-black dark:hover:text-white transition-transform hover:scale-110" />
+              <AiFillGithub className="transition-transform hover:scale-110 hover:text-black dark:hover:text-white" />
             </a>
             <a href="mailto:johannjo2000@gmail.com" aria-label="Email">
-              <AiFillMail className="hover:text-red-500 transition-transform hover:scale-110" />
+              <AiFillMail className="transition-transform hover:scale-110 hover:text-red-500" />
             </a>
           </div>
 
           {!loading && (
-            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-zinc-300 dark:border-zinc-700">
+            <div className="mx-auto size-32 overflow-hidden rounded-full border-4 border-zinc-300 dark:border-zinc-700">
               <Image
                 src={johan}
                 alt="Photo of Johan"
                 width={128}
                 height={128}
-                className="w-fit h-full translate-x-1 -translate-y-1 object-cover"
+                className="h-full w-fit -translate-y-1 translate-x-1 object-cover"
               />
             </div>
           )}
