@@ -1,43 +1,84 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiOutlineDown } from "react-icons/ai";
 import type { Project } from "@prisma/client";
 
-export default function ProjectCard({ project }: { project: Project }) {
-  const listTags = project.tags.map((tag, index) =>
-    <div key={index} className="bg-sky-500 text-xs rounded-full py-1 px-3 inline-block m-1 text-white transition-transform transform hover:scale-105 opacity-0 animate-fade-in"
-      style={{ animationDelay: `${index * 200}ms` }}
-    >
-      {tag}
-    </div>
-  );
+export default function ProjectCard({
+  project,
+  expandAll,
+}: {
+  project: Project;
+  expandAll?: boolean;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Sync internal state with expandAll toggle
+  useEffect(() => {
+    setExpanded(expandAll ?? false);
+  }, [expandAll]);
+
   return (
-    <div className="transition bg-gradient-to-br from-neutral-100 dark:from-slate-900 dark:to-slate-800 max-w-screen-xl overflow-hidden rounded-3xl m-6 shadow-lg hover:scale-105 hover:shadow-2xl">
-      <div className="md:flex group">
-        <div className="md:shrink-0 p-2 overflow-hidden">
-          <Image
-            src={project.img || ""}
-            alt={project.name}
-            className="rounded-3xl h-48 w-full object-cover md:h-full md:w-56 transition-transform transform group-hover:scale-110"
-            width={1}
-            height={1}
-          />
+    <div className="transition-all">
+      <div
+        onClick={() => setExpanded((prev) => !prev)}
+        className="flex items-center justify-between cursor-pointer select-none"
+      >
+        <div className="flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
+            {project.name}
+          </h2>
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="text-zinc-600 dark:text-zinc-400 hover:text-sky-500"
+          >
+            <AiFillGithub className="w-6 h-6 hover:text-sky-500 transition" />
+          </a>
         </div>
-        <div className="flex flex-col justify-between p-6">
-          <div>
-            <h1 className="text-3xl text-black dark:text-white font-sans font-bold transition-colors duration-200 group-hover:text-sky-500 flex items-center justify-between">
-              {project.name}
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                <AiFillGithub className="scale-150 transition-transform transform hover:scale-175" />
-              </a>
-            </h1>
-            <p className="mt-4 text-md font-sans text-gray-700 dark:text-gray-300 leading-relaxed">
-              {project.description}
-            </p>
-          </div>
-          <div className="mt-4 flex flex-wrap">
-            {listTags}
+        <AiOutlineDown
+          className={`w-5 h-5 transition-transform duration-300 ${expanded ? "rotate-180" : "rotate-0"
+            }`}
+        />
+      </div>
+
+      <p
+        className={`mt-2 text-zinc-600 dark:text-zinc-300 transition-transform duration-300 ${expanded ? "" : "line-clamp-2"
+          }`}
+      >
+        {project.description}
+      </p>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {project.tags.map((tag, i) => (
+          <span
+            key={i}
+            className="bg-sky-500 text-white text-xs font-medium px-3 py-1 rounded-full"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div
+        ref={contentRef}
+        style={{
+          maxHeight: expanded ? contentRef.current?.scrollHeight : 0,
+        }}
+        className={`overflow-hidden transition-all duration-500 ease-in-out flex justify-center`}
+      >
+        <div className="mt-6">
+          <div className="w-fit rounded-2xl overflow-hidden mb-4">
+            <Image
+              src={project.img || ""}
+              alt={project.name}
+              className="w-full h-64 object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+              width={640}
+              height={256}
+            />
           </div>
         </div>
       </div>

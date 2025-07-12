@@ -6,14 +6,15 @@ import type { Project } from "@prisma/client";
 
 export default function ProjectList() {
   const [projects, setProjects] = useState<Project[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
+  const [expandAll, setExpandAll] = useState(false);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch("/api/projects");
         const data = await response.json();
-        setProjects(data.sort((p1: Project, p2: Project) => p2.order - p1.order));
+        setProjects(data.sort((a: Project, b: Project) => b.order - a.order));
       } catch (error) {
         console.error("Error fetching projects:", error);
       } finally {
@@ -25,34 +26,39 @@ export default function ProjectList() {
   }, []);
 
   return (
-    <section className="p-10 pt-0 transition bg-neutral-200 dark:bg-slate-800">
-      <h1 className="text-3xl text-left text-black dark:text-white font-bold">
-        Projects
-      </h1>
-      {loading ? (
-        <div className="grid md:grid-cols-1 2xl:grid-cols-2">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <SkeletonCard key={index} />
-          ))}
+    <section className="bg-neutral-100 dark:bg-zinc-900 px-6 py-20 sm:px-12 lg:px-32 transition">
+      <div className="max-w-3xl mx-auto">
+        <div className="flex items-center justify-between mb-12">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white">
+            Projects
+          </h1>
+          <button
+            className="text-sm hover:bg-zinc-800 text-white px-4 py-2 rounded-md transition"
+            onClick={() => setExpandAll((prev) => !prev)}
+          >
+            {expandAll ? "Collapse All" : "Expand All"}
+          </button>
         </div>
-      ) : (
-        <div className="grid md:grid-cols-1 2xl:grid-cols-2 animate-fade-in">
-          {projects?.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+        <div className="flex flex-col gap-16">
+          {(loading ? Array.from({ length: 4 }) : projects)?.map((project, index) =>
+            loading ? (
+              <SkeletonCard key={index} />
+            ) : (
+              <ProjectCard key={project.id} project={project} expandAll={expandAll} />
+            )
+          )}
         </div>
-      )}
+      </div>
     </section>
   );
 }
 
 function SkeletonCard() {
   return (
-    <div className="bg-white dark:bg-slate-700 shadow-lg rounded-3xl p-6 m-6 animate-pulse">
-      <div className="h-6 bg-gray-300 dark:bg-slate-600 rounded mb-4"></div>
-      <div className="h-4 bg-gray-300 dark:bg-slate-600 rounded mb-2 w-3/4"></div>
-      <div className="h-4 bg-gray-300 dark:bg-slate-600 rounded mb-4 w-1/2"></div>
-      <div className="w-full h-40 bg-gray-300 dark:bg-slate-600 rounded"></div>
+    <div className="animate-pulse space-y-4">
+      <div className="w-full h-52 bg-zinc-300 dark:bg-zinc-600 rounded-xl" />
+      <div className="h-6 w-2/3 bg-zinc-300 dark:bg-zinc-600 rounded" />
+      <div className="h-4 w-1/2 bg-zinc-300 dark:bg-zinc-600 rounded" />
     </div>
   );
 }
