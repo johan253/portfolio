@@ -33,7 +33,7 @@ export default function Home() {
     <main className={darkMode ? "dark" : ""}>
       {/* Hero / Intro Section */}
       <section className="bg-neutral-100 dark:bg-zinc-900 pt-24 pb-16 transition">
-        <Navbar toggleDark={toggleDarkMode} resumeLink={resume} loading={loading} />
+        <Navbar darkMode={darkMode} toggleDark={toggleDarkMode} resumeLink={resume} loading={loading} />
 
         <div className="max-w-4xl mx-auto text-center px-6">
           <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
