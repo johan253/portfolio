@@ -27,7 +27,7 @@ export default function ProjectList() {
 
   return (
     <section className="bg-neutral-100 dark:bg-zinc-900 px-6 py-20 sm:px-12 lg:px-32 transition border-t border-zinc-200 dark:border-zinc-700 ">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white">
             Projects
