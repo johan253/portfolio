@@ -15,12 +15,12 @@ export default function ExperienceList() {
   }, []);
 
   return (
-    <section className="relative bg-neutral-100 dark:bg-zinc-900 text-zinc-900 dark:text-white px-6 py-20 sm:px-12 lg:px-32">
+    <section className="relative bg-neutral-100 dark:bg-zinc-900 text-zinc-900 dark:text-white px-6 py-20 sm:px-12 lg:px-32 border-t border-zinc-200 dark:border-zinc-700">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-12">
           Experience
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-12">
           {(loading ? Array.from({ length: 2 }) : experiences).map((exp, index) =>
             loading ? (
               <SkeletonCard key={index} />

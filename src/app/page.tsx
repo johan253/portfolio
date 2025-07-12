@@ -10,66 +10,96 @@ import React, { useState, useEffect } from "react";
 
 export default function Home() {
   const [resume, setResume] = useState<string>("");
-  const [johan, setJohan] = useState<string>("https://png.pngtree.com/png-vector/20220705/ourmid/pngtree-loading-icon-vector-transparent-png-image_5687537.png");
+  const [johan, setJohan] = useState<string>(
+    "https://png.pngtree.com/png-vector/20220705/ourmid/pngtree-loading-icon-vector-transparent-png-image_5687537.png"
+  );
   const [loading, setLoading] = useState<boolean>(true);
   const [darkMode, setDarkMode] = useState<boolean>(true);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
   useEffect(() => {
     const fetchData = async () => {
-      setJohan(await fetch("/api/images/johan").then(res => res.json()));
-      setResume(await fetch("/api/images/resume").then(res => res.json()));
+      setJohan(await fetch("/api/images/johan").then((res) => res.json()));
+      setResume(await fetch("/api/images/resume").then((res) => res.json()));
       setLoading(false);
     };
     fetchData();
   }, []);
+
   return (
     <main className={darkMode ? "dark" : ""}>
-      <section className="transition bg-neutral-200 dark:bg-slate-800 pt-24 pb-8">
+      {/* Hero / Intro Section */}
+      <section className="bg-neutral-100 dark:bg-zinc-900 pt-24 pb-16 transition">
         <Navbar toggleDark={toggleDarkMode} resumeLink={resume} loading={loading} />
-        <div className="text-center">
-          <p className="font-mono text-black dark:text-white">Hi, my name is</p>
-          <h1 className="typewriter max-w-fit text-5xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 p-2 font-bold animate-gradient-wave">
+
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
+            Hi, my name is
+          </p>
+
+          <h1 className="typewriter max-w-fit text-5xl sm:text-6xl font-bold bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 text-transparent bg-clip-text animate-gradient-wave mb-4">
             Johan Hernandez
           </h1>
-          <h3 className="text-2xl p-2 text-black dark:text-white">
+
+          <h2 className="text-2xl text-zinc-700 dark:text-zinc-300 mb-6">
             Software Engineer
-          </h3>
-          <p className="text-md p-12 max-w-screen-xl mx-auto leading-8 text-gray-600 dark:text-gray-400">
-            I am a Computer Science student at the University of Washington and passionate about programming and solving problems alongside others. I
-            love to learn new things every day and face different kinds of challenges along the way. Connect with me and get to know me better!
+          </h2>
+
+          <p className="text-md text-zinc-600 dark:text-zinc-400 leading-relaxed mb-10">
+            I&apos;m a Computer Science student at the University of Washington with a passion for building things and solving meaningful problems. I enjoy collaborating with others and tackling new challenges while continuously learning and improving. Let&apos;s connect!
           </p>
-        </div>
-        <div className="text-3xl flex justify-center gap-14 py-3 text-gray-700 dark:text-gray-400">
-          <a href={"https://www.linkedin.com/in/johan253/"} target={"_blank"} rel={"noopener noreferrer"}>
-            <AiFillLinkedin className={"transition hover:scale-105 hover:fill-blue-600"} />
-          </a>
-          <a href={"https://github.com/johan253"} target={"_blank"} rel={"noopener noreferrer"}>
-            <AiFillGithub className={"transition hover:scale-105 hover:fill-black"} />
-          </a>
-          <a href={"mailto:johannjo2000@gmail.com"}>
-            <AiFillMail className={"transition hover:scale-105 hover:fill-red-600"} />
-          </a>
-        </div>
-        <div className={"relative mx-auto bg-gradient-to-b from-blue-900 rounded-full w-40 h-40 mt-12"}>
-          <Image
-            className={`scale-75 -translate-y-6 -translate-x-1.5 w-auto h-auto ${loading ? "animate-spin" : ""}`}
-            src={johan}
-            alt={"Animated Image of Johan"}
-            width={1}
-            height={1}
-          />
+
+          <div className="flex justify-center gap-6 text-zinc-600 dark:text-zinc-400 text-2xl mb-10">
+            <a
+              href="https://www.linkedin.com/in/johan253/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <AiFillLinkedin className="hover:text-blue-600 transition-transform hover:scale-110" />
+            </a>
+            <a
+              href="https://github.com/johan253"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <AiFillGithub className="hover:text-black dark:hover:text-white transition-transform hover:scale-110" />
+            </a>
+            <a href="mailto:johannjo2000@gmail.com" aria-label="Email">
+              <AiFillMail className="hover:text-red-500 transition-transform hover:scale-110" />
+            </a>
+          </div>
+
+          {!loading && (
+            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-zinc-300 dark:border-zinc-700">
+              <Image
+                src={johan}
+                alt="Photo of Johan"
+                width={128}
+                height={128}
+                className="w-fit h-full translate-x-1 -translate-y-1 object-cover"
+              />
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Experience Section */}
       <section id="experience">
         <ExperienceList />
       </section>
+
+      {/* Projects Section */}
       <section id="projects">
         <ProjectList />
       </section>
+
+      {/* Footer */}
       <Footer />
     </main>
   );
-
 }
