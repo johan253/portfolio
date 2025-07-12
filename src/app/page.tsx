@@ -40,7 +40,7 @@ export default function Home() {
             Hi, my name is
           </p>
 
-          <h1 className="typewriter max-w-fit text-5xl sm:text-6xl font-bold bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 text-transparent bg-clip-text animate-gradient-wave mb-4">
+          <h1 className="typewriter max-w-fit text-4xl sm:text-6xl font-bold bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 text-transparent bg-clip-text animate-gradient-wave mb-4">
             Johan Hernandez
           </h1>
 
