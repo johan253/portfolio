@@ -26,29 +26,26 @@ const Navbar = ({ toggleDark, resumeLink, loading }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 transition bg-neutral-50 dark:bg-slate-700 shadow-md shadow-neutral-300 dark:shadow-slate-950 p-3 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full z-50 transition p-3 flex justify-between items-center bg-neutral-200 dark:bg-slate-800">
       {/* Menu Icon */}
       <div
         className="p-6 text-white rounded-md bg-neutral-200 dark:bg-slate-800 cursor-pointer flex items-center justify-center relative"
         onClick={toggleMenu}
       >
         <FaBars
-          className={`text-2xl text-black dark:text-white transition-transform duration-300 absolute ${
-            menuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
-          }`}
+          className={`text-2xl text-black dark:text-white transition-transform duration-300 absolute ${menuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
+            }`}
         />
         <FaTimes
-          className={`text-2xl text-black dark:text-white transition-transform duration-300 absolute ${
-            menuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
-          }`}
+          className={`text-2xl text-black dark:text-white transition-transform duration-300 absolute ${menuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
+            }`}
         />
       </div>
 
       {/* Dropdown Menu */}
       <ul
-        className={`absolute top-full left-0 w-full bg-neutral-50 dark:bg-slate-700 shadow-lg z-40 transition-all duration-300 ease-in-out ${
-          menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5 pointer-events-none"
-        }`}
+        className={`absolute top-full left-0 w-full bg-neutral-50 dark:bg-slate-700 shadow-lg z-40 transition-all duration-300 ease-in-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5 pointer-events-none"
+          }`}
       >
         <li className="p-3 border-b border-neutral-300 dark:border-slate-600">
           <button
