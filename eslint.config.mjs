@@ -6,6 +6,7 @@ import { defineConfig } from "eslint/config";
 
 
 export default defineConfig([
+  { ignores: ["**/dist/**", "**/node_modules/**", "**/coverage/**", "**/.next/**"] },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     plugins: { js },
@@ -20,7 +21,7 @@ export default defineConfig([
     ...pluginReact.configs.flat.recommended,
     rules: {
       ...pluginReact.configs.flat.recommended.rules,
-      "react/react-in-jsx-scope": "off", // 👈 disable this rule
+      "react/react-in-jsx-scope": "off",
     },
   },
 ]);

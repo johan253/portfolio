@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
@@ -22,12 +23,12 @@ module.exports = {
       },
       keyframes: {
         fadeIn: {
-          "0%": { opacity: "0", transform: "translateX(-10px)"},
-          "100%": { opacity: "1", transform: "translateX(0)"},
+          "0%": { opacity: "0", transform: "translateX(-10px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
         draw: {
-          from: { "stroke-dashoffset": "800"},
-          to: { "stroke-dashoffset": "0"},
+          from: { "stroke-dashoffset": "800" },
+          to: { "stroke-dashoffset": "0" },
         },
       },
     },
