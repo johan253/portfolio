@@ -25,7 +25,7 @@ export default function ExperienceList() {
             loading ? (
               <SkeletonCard key={index} />
             ) : (
-              <ExperienceCard key={exp.id} experience={exp} />
+              <ExperienceCard key={(exp as undefined | Experience).id ?? index} experience={exp as Experience} />
             )
           )}
         </div>
