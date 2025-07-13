@@ -46,17 +46,18 @@ export default function ProjectCard({
       </div>
 
       <p
-        className={`mt-2 text-zinc-600 transition-transform duration-300 dark:text-zinc-300 ${expanded ? "" : "line-clamp-2"
+        className={`mt-2 animate-fade-in text-zinc-600 transition-transform duration-300 dark:text-zinc-300 ${expanded ? "" : "line-clamp-2"
           }`}
       >
         {project.description}
       </p>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="mt-3 flex flex-wrap gap-4">
         {project.tags.map((tag, i) => (
           <span
             key={i}
-            className="rounded-full bg-sky-500 px-3 py-1 text-xs font-medium text-white"
+            className="animate-fade-in rounded-full bg-sky-500 px-3 py-1 text-xs font-medium text-white opacity-0 transition-transform"
+            style={{ animationDelay: `${i * 200 + 500}ms` }}
           >
             {tag}
           </span>
