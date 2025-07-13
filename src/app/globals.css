@@ -85,13 +85,27 @@ body {
   }
 }
 
+@layer utilities {
+  .typewriter {
+    --typing-speed: 1.5s;
+    --steps: 18;
+  }
+
+  @screen sm {
+    .typewriter {
+      --typing-speed: 2s;
+      --steps: 25;
+    }
+  }
+}
+
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   animation:
-    typing 2s steps(25, end),
+    typing var(--typing-speed) steps(var(--steps), end),
     blink-caret 0.75s step-end infinite,
     gradient-wave 5s linear infinite;
 }
