@@ -15,8 +15,8 @@ export default function ProjectList() {
         const response = await fetch("/api/projects");
         const data = await response.json();
         setProjects(data);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
+      } catch {
+        setProjects([]);
       } finally {
         setLoading(false);
       }
