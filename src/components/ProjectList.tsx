@@ -14,7 +14,7 @@ export default function ProjectList() {
       try {
         const response = await fetch("/api/projects");
         const data = await response.json();
-        setProjects(data.sort((a: Project, b: Project) => b.order - a.order));
+        setProjects(data);
       } catch (error) {
         console.error("Error fetching projects:", error);
       } finally {
