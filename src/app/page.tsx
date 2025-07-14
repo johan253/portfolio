@@ -21,13 +21,14 @@ export default function Home() {
     setDarkMode(!darkMode);
   };
 
-
-  const hasVisited = localStorage.getItem("hasVisited");
-  if (!hasVisited) {
-    localStorage.setItem("hasVisited", "true");
-    setTimeout(() => {
-      setShowPopup(true);
-    }, 5000);
+  if (typeof window !== "undefined") {
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      localStorage.setItem("hasVisited", "true");
+      setTimeout(() => {
+        setShowPopup(true);
+      }, 5000);
+    }
   }
 
   useEffect(() => {
