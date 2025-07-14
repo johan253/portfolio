@@ -36,6 +36,16 @@ export function middleware(request: Request) {
   ${RESET}
   ${FG_WHITE}I am a Software Engineer based in Washington.${RESET}
 
+  ${FG_WHITE}${BOLD}Experience:${RESET}
+
+      ${FG_GREEN}${BOLD}Infoblox:${RESET} ${FG_WHITE}Software Engineer Intern (2025)${RESET}
+      ${FG_MAGENTA}${BOLD}CodeDay Labs:${RESET} ${FG_WHITE}Software Engineer Intern (2024)${RESET}
+      ${FG_BLUE}${BOLD}Pacific Propeller International:${RESET} ${FG_WHITE}Quality Assurance Administrator (2023)${RESET}
+
+  ${FG_WHITE}${BOLD}Education:${RESET}
+
+      ${FG_MAGENTA}${BOLD}University of Washington:${RESET} ${FG_WHITE}B.S. Computer Science and Systems (Cum Laude)${RESET}
+
   ${FG_WHITE}${BOLD}Links:${RESET}
   
       ${FG_BLUE}${BOLD}LinkedIn: ${RESET}${FG_WHITE}${UNDERLINE}https://linkedin.com/in/johan253${RESET}
