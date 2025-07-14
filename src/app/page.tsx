@@ -15,10 +15,20 @@ export default function Home() {
   );
   const [loading, setLoading] = useState<boolean>(true);
   const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+
+  const hasVisited = localStorage.getItem("hasVisited");
+  if (!hasVisited) {
+    localStorage.setItem("hasVisited", "true");
+    setTimeout(() => {
+      setShowPopup(true);
+    }, 5000);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -100,6 +110,37 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-    </main>
+      {/* Popup for first-time visitors */}
+      {
+        showPopup && (
+          <div className="fixed bottom-6 left-6 z-50 flex animate-fade-in items-center justify-center gap-4 rounded-md bg-zinc-800 p-4 text-white shadow-lg shadow-black transition-transform">
+            <div className="flex flex-col items-start justify-center">
+              <p>
+                Get a quick summary with the <strong>curl</strong> command:
+              </p>
+              <code>
+                <pre className="mt-2 flex gap-2 rounded-md bg-zinc-900 p-2">
+                  <p>
+                    &gt;
+                  </p>
+                  <p className="text-green-500">
+                    curl
+                  </p>
+                  <p>
+                    johanhernandez.com
+                  </p>
+                </pre>
+              </code>
+            </div>
+            <button
+              className="rounded-md bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+              onClick={() => setShowPopup(false)}
+            >
+              Close
+            </button>
+          </div>
+        )
+      }
+    </main >
   );
 }
