@@ -128,7 +128,7 @@ export default function Home() {
                     curl
                   </p>
                   <p>
-                    johanhernandez.com
+                    -L johanhernandez.com
                   </p>
                 </pre>
               </code>
