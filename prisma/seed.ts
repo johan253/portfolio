@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const PrismaClient = require("@prisma/client").PrismaClient;
 const pc = new PrismaClient();
 async function main() {

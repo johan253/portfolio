@@ -9,14 +9,14 @@ export const metadata = {
 export default async function VisitsPage() {
   const stats = await getVisitStats();
   return (
-    <main className="bg-slate-800 text-white min-h-screen pt-24 pb-12 flex flex-col">
+    <main className="flex min-h-screen flex-col bg-slate-800 pb-12 pt-24 text-white">
       <div className="container mx-auto px-4">
-        <h1 className="text-5xl font-bold text-center mb-12">Visit Statistics</h1>
+        <h1 className="mb-12 text-center text-5xl font-bold">Visit Statistics</h1>
 
         {/* Last 7 Days */}
         <section className="mb-10">
-          <h2 className="text-3xl font-semibold text-blue-400 mb-4">Last 7 Days</h2>
-          <div className="bg-slate-900 p-6 rounded-lg shadow-lg">
+          <h2 className="mb-4 text-3xl font-semibold text-blue-400">Last 7 Days</h2>
+          <div className="rounded-lg bg-slate-900 p-6 shadow-lg">
             <p className="text-lg text-gray-300">
               Total Visits: <span className="font-bold text-white">{stats.last7Days}</span>
             </p>
@@ -25,8 +25,8 @@ export default async function VisitsPage() {
 
         {/* Last 30 Days */}
         <section className="mb-10">
-          <h2 className="text-3xl font-semibold text-blue-400 mb-4">Last 30 Days</h2>
-          <div className="bg-slate-900 p-6 rounded-lg shadow-lg">
+          <h2 className="mb-4 text-3xl font-semibold text-blue-400">Last 30 Days</h2>
+          <div className="rounded-lg bg-slate-900 p-6 shadow-lg">
             <p className="text-lg text-gray-300">
               Total Visits: <span className="font-bold text-white">{stats.last30Days}</span>
             </p>
@@ -38,11 +38,11 @@ export default async function VisitsPage() {
 
         {/* Country Statistics */}
         <section>
-          <h2 className="text-3xl font-semibold text-blue-400 mb-4">Country of Origin</h2>
+          <h2 className="mb-4 text-3xl font-semibold text-blue-400">Country of Origin</h2>
           <div className="overflow-x-auto">
-            <table className="table-auto w-full bg-slate-900 rounded-lg shadow-lg">
+            <table className="w-full table-auto rounded-lg bg-slate-900 shadow-lg">
               <thead>
-                <tr className="text-left bg-slate-700 text-gray-200">
+                <tr className="bg-slate-700 text-left text-gray-200">
                   <th className="px-6 py-3 font-semibold">Country</th>
                   <th className="px-6 py-3 font-semibold">Percentage</th>
                 </tr>
@@ -67,7 +67,7 @@ export default async function VisitsPage() {
         </section>
       </div>
       <div>
-        <Link href="/" className="text-blue-400 hover:underline block text-center mt-8">
+        <Link href="/" className="mt-8 block text-center text-blue-400 hover:underline">
           Return to Home
         </Link>
       </div>

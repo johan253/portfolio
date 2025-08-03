@@ -1,8 +1,71 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from "next/server";
+
+// Text Styles
+const RESET = '\x1b[0m';
+const BOLD = '\x1b[1m';
+const UNDERLINE = '\x1b[4m';
+
+// Foreground (Text) Colors
+const FG_BLACK = '\x1b[30m';
+const FG_RED = '\x1b[31m';
+const FG_GREEN = '\x1b[32m';
+const FG_YELLOW = '\x1b[33m';
+const FG_BLUE = '\x1b[34m';
+const FG_MAGENTA = '\x1b[35m';
+const FG_CYAN = '\x1b[36m';
+const FG_WHITE = '\x1b[37m';
 
 export function middleware(request: Request) {
   const response = NextResponse.next();
   const cookies = request.headers.get("cookie") || "";
+
+  const isCurl = request.headers.get('user-agent')?.toLowerCase().includes('curl');
+
+  if (isCurl) {
+    const ansiMessage = `
+  ${FG_WHITE}${BOLD}Hello from curl, my name is: ${RESET}
+  ${FG_CYAN}
+      ░█████            ░██                              
+        ░██             ░██                              
+        ░██   ░███████  ░████████   ░██████   ░████████  
+        ░██  ░██    ░██ ░██    ░██       ░██  ░██    ░██ 
+  ░██   ░██  ░██    ░██ ░██    ░██  ░███████  ░██    ░██ 
+  ░██   ░██  ░██    ░██ ░██    ░██ ░██   ░██  ░██    ░██ 
+   ░██████    ░███████  ░██    ░██  ░█████░██ ░██    ░██ 
+  ${RESET}
+  ${FG_WHITE}I am a Software Engineer based in Washington.${RESET}
+
+  ${FG_WHITE}${BOLD}Experience:${RESET}
+
+      ${FG_GREEN}${BOLD}Infoblox:${RESET} ${FG_WHITE}Software Engineer Intern (2025)${RESET}
+      ${FG_MAGENTA}${BOLD}CodeDay Labs:${RESET} ${FG_WHITE}Software Engineer Intern (2024)${RESET}
+      ${FG_BLUE}${BOLD}Pacific Propeller International:${RESET} ${FG_WHITE}Quality Assurance Administrator (2023)${RESET}
+
+  ${FG_WHITE}${BOLD}Education:${RESET}
+
+      ${FG_MAGENTA}${BOLD}University of Washington:${RESET} ${FG_WHITE}B.S. Computer Science and Systems (Cum Laude)${RESET}
+
+  ${FG_WHITE}${BOLD}Links:${RESET}
+  
+      ${FG_BLUE}${BOLD}LinkedIn: ${RESET}${FG_WHITE}${UNDERLINE}https://linkedin.com/in/johan253${RESET}
+      ${FG_MAGENTA}${BOLD}Github: ${RESET}${FG_WHITE}${UNDERLINE}https://github.com/johan253${RESET}
+      ${FG_CYAN}${BOLD}Portfolio: ${RESET}${FG_WHITE}${UNDERLINE}https://johanhernandez.com${RESET}
+      ${FG_RED}${BOLD}Email: ${RESET}${FG_WHITE}${UNDERLINE}johannjo2000@gmail.com${RESET}
+
+  ${FG_YELLOW}${BOLD}Please visit my site from a browser for a better experience!${RESET}
+  
+`
+
+
+    return new Response(ansiMessage, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store',
+      },
+    });
+  }
 
   // Check if the visitorId cookie exists
   if (!cookies.includes("visitorId")) {

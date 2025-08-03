@@ -10,44 +10,42 @@ export default function ExperienceList() {
   useEffect(() => {
     fetch("/api/experience")
       .then((response) => response.json())
-      .then((data) => {
-        setExperiences(data);
-      })
+      .then((data) => setExperiences(data))
       .finally(() => setLoading(false));
   }, []);
 
   return (
-    <section className="transition bg-neutral-200 dark:bg-slate-800 text-black dark:text-white p-10 pt-0">
-      <h1 className="text-3xl font-bold mb-6">Experience</h1>
-      {loading ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {Array.from({ length: 2 }).map((_, index) => (
-            <SkeletonCard key={index} />
-          ))}
+    <section className="relative border-t border-zinc-200 bg-neutral-100 px-6 py-20 text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white sm:px-12 lg:px-32">
+      <div className="mx-auto max-w-7xl">
+        <h1 className="mb-12 text-4xl font-extrabold tracking-tight sm:text-5xl">
+          Experience
+        </h1>
+        <div className="grid grid-cols-1 gap-12">
+          {(loading ? Array.from({ length: 2 }) : experiences).map((exp, index) =>
+            loading ? (
+              <SkeletonCard key={index} />
+            ) : (
+              <ExperienceCard key={(exp as Experience).id} experience={exp as Experience} />
+            )
+          )}
         </div>
-      ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {experiences.map((exp) => (
-            <ExperienceCard key={exp.id} experience={exp} />
-          ))}
-        </div>
-      )}
+      </div>
     </section>
   );
 }
 
 function SkeletonCard() {
   return (
-    <div className="animate-pulse">
-      <div className="h-6 bg-gray-300 dark:bg-slate-700 rounded mb-4 w-1/2"></div>
-      <div className="h-4 bg-gray-300 dark:bg-slate-700 rounded mb-2 w-3/4"></div>
-      <div className="h-4 bg-gray-300 dark:bg-slate-700 rounded mb-4 w-1/3"></div>
+    <div className="animate-pulse rounded-2xl border border-zinc-200 bg-white p-6 shadow-md dark:border-zinc-700 dark:bg-zinc-800">
+      <div className="mb-4 h-6 w-2/3 rounded bg-zinc-300 dark:bg-zinc-700" />
+      <div className="mb-2 h-4 w-1/3 rounded bg-zinc-300 dark:bg-zinc-700" />
+      <div className="mb-4 h-4 w-1/4 rounded bg-zinc-300 dark:bg-zinc-700" />
       <div className="space-y-2">
-        {Array.from({ length: 3 }).map((_, index) => (
+        {Array.from({ length: 3 }).map((_, i) => (
           <div
-            key={index}
-            className="h-4 bg-gray-300 dark:bg-slate-700 rounded w-full"
-          ></div>
+            key={i}
+            className="h-3 rounded bg-zinc-300 dark:bg-zinc-700"
+          />
         ))}
       </div>
     </div>
