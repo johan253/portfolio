@@ -5,6 +5,7 @@ import type { Project } from "@prisma/client";
 import { AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { TypographyH4, TypographyP } from "./ui/typography";
 import { Badge } from "./ui/badge";
+import { ExternalLink } from "lucide-react";
 
 export default function ProjectCard({
   project,
@@ -25,14 +26,28 @@ export default function ProjectCard({
         <TypographyP className={`line-clamp-1 animate-fade-in text-sm transition-transform ${values?.includes(project.name) ? "hidden" : ""}`}>
           {project.description}
         </TypographyP>
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <AiFillGithub className="size-6 transition hover:text-sky-500" />
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <AiFillGithub className="size-6 transition hover:text-sky-500" />
+          </a>
+          {
+            project.url && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <ExternalLink className="size-6 transition hover:text-sky-500" />
+              </a>
+            )
+          }
+        </div>
       </div>
       <AccordionContent>
         <TypographyP>
